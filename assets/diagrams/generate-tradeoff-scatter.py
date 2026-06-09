@@ -133,6 +133,15 @@ MAPPING = {
     "grok-3-mini": "x-ai/grok-3-mini",
     "mistral-large-2411": "mistralai/mistral-large",
     "nemotron-3-ultra": "nvidia/nemotron-3-ultra-550b-a55b",
+    # Grok
+    "grok-4-0709": "x-ai/grok-4.3",
+    "grok-4-20": "x-ai/grok-4.20",
+    "grok-4-fast": "x-ai/grok-4-fast",
+    # GPT-5 mini, GPT-4.1 series
+    "gpt-5-mini-2025-08-07": "openai/gpt-5-mini",
+    "gpt-4.1-2025-04-14": "openai/gpt-4.1-mini",
+    "gpt-4.1-mini-2025-04-14": "openai/gpt-4.1-mini",
+    "gpt-4.1-nano-2025-04-14": "openai/gpt-4.1-nano",
 }
 
 # ── match ───────────────────────────────────────────────────────────
@@ -201,7 +210,7 @@ label_set = {
     "Kimi K2.6", "Kimi K2.5",
     "Qwen3-235B-A22B", "Qwen 3.6 Plus",
     "Llama 4 Maverick", "Llama 4 Scout", "Llama 3.3-70B",
-    "Phi-4",
+    "Phi-4", "Grok 4", "GPT-5 mini", "GPT-4.1 nano",
 }
 
 # Short display names
@@ -243,7 +252,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-fam
   <!-- header -->
   <text x="50" y="42" class="mono cy" font-size="14" letter-spacing="3">~ COST vs CAPABILITY</text>
   <text x="50" y="78" class="t" font-size="30">Smarter models cost more &#8212; but open weights close the gap</text>
-  <text x="50" y="104" class="m" font-size="15">Each circle is one model. Area &#8733; usage on OpenRouter. X axis is log scale.</text>
+  <text x="50" y="104" class="m" font-size="15">Each circle is one model. Area &#8733; requests on OpenRouter (hover for details). X axis is log scale.</text>
 
   <!-- legend -->
   <g font-size="14">
@@ -280,7 +289,9 @@ for p in points_sorted:
     y = cy(p["eci"])
     r = radius(p["usage"])
     color = "#35E0D8" if p["open"] else "#E61E25"
-    svg += f'  <circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{color}" fill-opacity="0.55" stroke="{color}" stroke-width="1"/>\n'
+    tag = "open" if p["open"] else "closed"
+    tip = f'{p["name"]}  |  ECI {p["eci"]:.1f}  |  ${p["cost"]:.2f}/Mtok  |  {p["usage"]:,} reqs  |  {tag}'
+    svg += f'  <circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{color}" fill-opacity="0.55" stroke="{color}" stroke-width="1"><title>{tip}</title></circle>\n'
 
 # Draw labels
 for p in points:
