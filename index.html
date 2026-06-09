@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Slides Template</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="css/theme-9x.css" id="theme">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+  <!-- ============ TITLE SLIDE ============ -->
+  <section class="title-slide" data-background-color="#1D1D40">
+    <img class="x9-logo" src="assets/9x-logo.svg" alt="The 9x Academic">
+    <h1>Your presentation title</h1>
+    <p class="subtitle">A subtitle or tagline for the talk</p>
+    <p class="author">Your Name</p>
+    <p class="date">June 2026</p>
+  </section>
+
+  <!-- ============ SECTION DIVIDER ============ -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Section title</h2>
+    <p class="kicker"><span class="accent">01</span> · Introduction</p>
+  </section>
+
+  <!-- ============ TEXT SLIDE ============ -->
+  <section>
+    <h2>Regular slide with bullet points</h2>
+    <ul>
+      <li>First point about <strong>large language models</strong></li>
+      <li>Second point with an <a href="https://example.com">external link</a></li>
+      <li>Third point with <code>inline code</code></li>
+    </ul>
+    <aside class="notes">
+      Speaker notes go here. Press S to open the speaker view.
+    </aside>
+  </section>
+
+  <!-- ============ CODE SLIDE ============ -->
+  <section>
+    <h2>Code example</h2>
+    <pre><code class="language-python" data-trim data-line-numbers="1-3|5-8">
+import openai
+
+client = openai.OpenAI()
+
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+    </code></pre>
+    <p class="code-caption">Basic API call to an LLM</p>
+  </section>
+
+  <!-- ============ CODE COMPARISON ============ -->
+  <section>
+    <h2>Side-by-side code</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Before</h3>
+        <pre><code class="language-python" data-trim>
+# Manual data cleaning
+for row in data:
+    row["name"] = row["name"].strip()
+    row["date"] = parse_date(row["date"])
+    if not validate(row):
+        errors.append(row)
+        </code></pre>
+      </div>
+      <div class="col">
+        <h3>After</h3>
+        <pre><code class="language-python" data-trim>
+# LLM-assisted pipeline
+result = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{
+        "role": "user",
+        "content": f"Clean this data: {data}"
+    }],
+)
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMAGE SLIDE ============ -->
+  <section>
+    <h2>Image with caption</h2>
+    <figure>
+      <img src="https://placehold.co/800x400/1D1D40/D4D2E3?text=Your+Figure" alt="Placeholder">
+      <figcaption>Source: Your citation here</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ VIDEO EMBED ============ -->
+  <section>
+    <h2>Video embed</h2>
+    <div class="video-container">
+      <iframe data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              width="800" height="450"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              data-autoplay>
+      </iframe>
+    </div>
+    <p class="video-caption">Replace with your video URL</p>
+  </section>
+
+  <!-- ============ QUOTE / BLOCKQUOTE ============ -->
+  <section>
+    <blockquote>
+      <p>Turning a program into a <em>programming systems product</em> costs about 9×.</p>
+      <cite>— Fred Brooks, <em>The Mythical Man-Month</em> (1975)</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============ TWO-COLUMN LAYOUT ============ -->
+  <section>
+    <h2>Two-column layout</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Left column</h3>
+        <p>Explain a concept on the left side with text, lists, or small code snippets.</p>
+        <ul>
+          <li>Point A</li>
+          <li>Point B</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Right column</h3>
+        <p>Show a diagram, image, or complementary content on the right.</p>
+        <img src="https://placehold.co/400x250/2C2C5A/D4D2E3?text=Diagram" alt="Diagram">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TABLE SLIDE ============ -->
+  <section>
+    <h2>Table example</h2>
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Parameters</th><th>Context</th><th>Release</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>GPT-4o</td><td>—</td><td>128K</td><td>2024</td></tr>
+        <tr><td>Claude 4 Opus</td><td>—</td><td>200K</td><td>2025</td></tr>
+        <tr><td>Gemini 2.5 Pro</td><td>—</td><td>1M</td><td>2025</td></tr>
+      </tbody>
+    </table>
+    <p class="table-note">Note: Parameter counts are not publicly disclosed for all models.</p>
+  </section>
+
+  <!-- ============ MATH SLIDE ============ -->
+  <section>
+    <h2>Math notation</h2>
+    <p>The transformer attention mechanism:</p>
+    <div class="math-block">
+      \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]
+    </div>
+    <p>Where $d_k$ is the dimension of the key vectors.</p>
+  </section>
+
+  <!-- ============ FRAGMENT ANIMATION ============ -->
+  <section>
+    <h2>Progressive reveal</h2>
+    <ol>
+      <li class="fragment">Collect training data</li>
+      <li class="fragment">Pre-train on next-token prediction</li>
+      <li class="fragment">Fine-tune with RLHF</li>
+      <li class="fragment highlight-red">Deploy and monitor</li>
+    </ol>
+  </section>
+
+  <!-- ============ TERMINAL / DEMO SLIDE ============ -->
+  <section>
+    <h2>Terminal output</h2>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">~/project</span>
+      </div>
+      <pre class="terminal-body"><span class="prompt">$</span> claude "refactor this module"
+<span class="output">I'll refactor the module to use dependency injection...</span>
+
+<span class="prompt">$</span> python -m pytest tests/
+<span class="output">======================== 42 passed in 3.21s ========================</span></pre>
+    </div>
+  </section>
+
+  <!-- ============ CALLOUT / ALERT ============ -->
+  <section>
+    <h2>Callout boxes</h2>
+    <div class="callout warning">
+      <strong>Warning:</strong> LLMs can hallucinate. Always verify outputs against ground truth.
+    </div>
+    <div class="callout tip">
+      <strong>Tip:</strong> Use structured outputs (JSON mode) for reliable data extraction.
+    </div>
+    <div class="callout info">
+      <strong>Key insight:</strong> Prompt engineering is an empirical discipline, not a theoretical one.
+    </div>
+  </section>
+
+  <!-- ============ CLOSING SLIDE ============ -->
+  <section class="title-slide" data-background-color="#1D1D40">
+    <img class="x9-logo" src="assets/9x-logo.svg" alt="The 9x Academic">
+    <h2>Thank you</h2>
+    <p class="subtitle">Questions?</p>
+    <p class="contact">your.email@university.edu · <a href="https://github.com/yourhandle">github.com/yourhandle</a></p>
+  </section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    showSlideNumber: 'all',
+    transition: 'none',
+    backgroundTransition: 'none',
+    center: true,
+    width: 1200,
+    height: 700,
+    margin: 0.08,
+    plugins: [RevealNotes, RevealMarkdown, RevealHighlight, RevealMath.KaTeX]
+  });
+</script>
+</body>
+</html>
