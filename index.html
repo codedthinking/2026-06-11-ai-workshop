@@ -246,21 +246,13 @@
   </section>
 
   <section>
-    <h2>Choosing a model: four tradeoffs</h2>
-    <table>
-      <thead>
-        <tr><th>Dimension</th><th>Cheap / small</th><th>Expensive / large</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Cost per token</strong></td><td>&#36;0.10 / M tokens</td><td>&#36;15 / M tokens (150×)</td></tr>
-        <tr><td><strong>Context window</strong></td><td>8–32K tokens</td><td>128K–1M tokens</td></tr>
-        <tr><td><strong>Latency</strong></td><td>Fast — small model, less compute</td><td>Slow — more layers, more reasoning</td></tr>
-        <tr><td><strong>"Smartness"</strong></td><td>Good at routine tasks</td><td>Better at novel reasoning, fewer errors</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top: 1em;">No single model dominates on all four. <strong>Match the model to the task.</strong></p>
+    <h2>Choosing a model: cost vs capability</h2>
+    <figure>
+      <img src="assets/diagrams/tradeoff-scatter.svg" alt="Scatter plot: ECI score vs cost per million tokens" style="max-height: 420px;">
+      <figcaption>Smarter costs more — but open-weight models (cyan) compete at lower prices</figcaption>
+    </figure>
     <aside class="notes">
-      Practical guidance: use a cheap/fast model (Haiku, Gemini Flash, Qwen 14B) for boilerplate, reformatting, simple edits. Use a frontier model (Opus, GPT-4o, Sonnet) for novel code generation, complex reasoning, long documents. The cost difference is 100×, so this matters at scale.
+      Practical guidance: use a cheap/fast model (Haiku, Gemini Flash, Qwen 14B) for boilerplate, reformatting, simple edits. Use a frontier model (Opus, GPT-5) for novel code generation, complex reasoning. The cost difference is 100×, so this matters at scale. Circle size = usage on OpenRouter.
     </aside>
   </section>
 

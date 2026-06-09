@@ -19,7 +19,7 @@ from urllib.request import urlopen
 
 # ── download ────────────────────────────────────────────────────────
 DATA_URL = "https://epoch.ai/data/benchmark_data.zip"
-CSV_NAME = "benchmark_data/epoch_capabilities_index.csv"
+CSV_NAME = "epoch_capabilities_index.csv"
 
 print(f"Downloading {DATA_URL} …")
 with urlopen(DATA_URL) as resp:
