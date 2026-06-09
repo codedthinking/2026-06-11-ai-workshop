@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Slides Template</title>
+<title>Agentic AI for Researchers — Workshop</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 <link rel="stylesheet" href="css/theme-9x.css" id="theme">
@@ -14,208 +14,503 @@
 <div class="reveal">
 <div class="slides">
 
-  <!-- ============ TITLE SLIDE ============ -->
+  <!-- ============ TITLE ============ -->
   <section class="title-slide" data-background-color="#1D1D40">
     <img class="x9-logo" src="assets/9x-logo.svg" alt="The 9x Academic">
-    <h1>Your presentation title</h1>
-    <p class="subtitle">A subtitle or tagline for the talk</p>
-    <p class="author">Your Name</p>
-    <p class="date">June 2026</p>
-  </section>
-
-  <!-- ============ SECTION DIVIDER ============ -->
-  <section data-background-color="#24244D">
-    <h2 class="section-title">Section title</h2>
-    <p class="kicker"><span class="accent">01</span> · Introduction</p>
-  </section>
-
-  <!-- ============ TEXT SLIDE ============ -->
-  <section>
-    <h2>Regular slide with bullet points</h2>
-    <ul>
-      <li>First point about <strong>large language models</strong></li>
-      <li>Second point with an <a href="https://example.com">external link</a></li>
-      <li>Third point with <code>inline code</code></li>
-    </ul>
+    <h1>Agentic AI for Researchers</h1>
+    <p class="subtitle">A one-day workshop for economists &amp; social scientists</p>
+    <p class="author">Miklos Koren</p>
+    <p class="date">June 11, 2026</p>
     <aside class="notes">
-      Speaker notes go here. Press S to open the speaker view.
+      Welcome. ~25 participants, 9:00–16:10. Three acts: how LLMs work, working with agents, and the reproducibility risk.
     </aside>
   </section>
 
-  <!-- ============ CODE SLIDE ============ -->
-  <section>
-    <h2>Code example</h2>
-    <pre><code class="language-python" data-trim data-line-numbers="1-3|5-8">
-import openai
-
-client = openai.OpenAI()
-
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[{"role": "user", "content": "Hello!"}],
-)
-    </code></pre>
-    <p class="code-caption">Basic API call to an LLM</p>
+  <!-- ============ THESIS ============ -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">The arc of the day</h2>
+    <p class="kicker"><span class="accent">three claims</span></p>
   </section>
 
-  <!-- ============ CODE COMPARISON ============ -->
   <section>
-    <h2>Side-by-side code</h2>
-    <div class="columns">
-      <div class="col">
-        <h3>Before</h3>
-        <pre><code class="language-python" data-trim>
-# Manual data cleaning
-for row in data:
-    row["name"] = row["name"].strip()
-    row["date"] = parse_date(row["date"])
-    if not validate(row):
-        errors.append(row)
-        </code></pre>
-      </div>
-      <div class="col">
-        <h3>After</h3>
-        <pre><code class="language-python" data-trim>
-# LLM-assisted pipeline
-result = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[{
-        "role": "user",
-        "content": f"Clean this data: {data}"
-    }],
-)
-        </code></pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ IMAGE SLIDE ============ -->
-  <section>
-    <h2>Image with caption</h2>
-    <figure>
-      <img src="https://placehold.co/800x400/1D1D40/D4D2E3?text=Your+Figure" alt="Placeholder">
-      <figcaption>Source: Your citation here</figcaption>
-    </figure>
-  </section>
-
-  <!-- ============ VIDEO EMBED ============ -->
-  <section>
-    <h2>Video embed</h2>
-    <div class="video-container">
-      <iframe data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              width="800" height="450"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              data-autoplay>
-      </iframe>
-    </div>
-    <p class="video-caption">Replace with your video URL</p>
-  </section>
-
-  <!-- ============ QUOTE / BLOCKQUOTE ============ -->
-  <section>
-    <blockquote>
-      <p>Turning a program into a <em>programming systems product</em> costs about 9×.</p>
-      <cite>— Fred Brooks, <em>The Mythical Man-Month</em> (1975)</cite>
-    </blockquote>
-  </section>
-
-  <!-- ============ TWO-COLUMN LAYOUT ============ -->
-  <section>
-    <h2>Two-column layout</h2>
-    <div class="columns">
-      <div class="col">
-        <h3>Left column</h3>
-        <p>Explain a concept on the left side with text, lists, or small code snippets.</p>
-        <ul>
-          <li>Point A</li>
-          <li>Point B</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>Right column</h3>
-        <p>Show a diagram, image, or complementary content on the right.</p>
-        <img src="https://placehold.co/400x250/2C2C5A/D4D2E3?text=Diagram" alt="Diagram">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TABLE SLIDE ============ -->
-  <section>
-    <h2>Table example</h2>
-    <table>
-      <thead>
-        <tr><th>Model</th><th>Parameters</th><th>Context</th><th>Release</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>GPT-4o</td><td>—</td><td>128K</td><td>2024</td></tr>
-        <tr><td>Claude 4 Opus</td><td>—</td><td>200K</td><td>2025</td></tr>
-        <tr><td>Gemini 2.5 Pro</td><td>—</td><td>1M</td><td>2025</td></tr>
-      </tbody>
-    </table>
-    <p class="table-note">Note: Parameter counts are not publicly disclosed for all models.</p>
-  </section>
-
-  <!-- ============ MATH SLIDE ============ -->
-  <section>
-    <h2>Math notation</h2>
-    <p>The transformer attention mechanism:</p>
-    <div class="math-block">
-      \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]
-    </div>
-    <p>Where $d_k$ is the dimension of the key vectors.</p>
-  </section>
-
-  <!-- ============ FRAGMENT ANIMATION ============ -->
-  <section>
-    <h2>Progressive reveal</h2>
+    <h2>Three claims</h2>
     <ol>
-      <li class="fragment">Collect training data</li>
-      <li class="fragment">Pre-train on next-token prediction</li>
-      <li class="fragment">Fine-tune with RLHF</li>
-      <li class="fragment highlight-red">Deploy and monitor</li>
+      <li class="fragment"><strong>Intelligence is a commodity</strong> — understand the stack, unbundle it, pick your tools.</li>
+      <li class="fragment"><strong>Agents work only when structure underneath them is good</strong> — your Day-1 practices are the prerequisite.</li>
+      <li class="fragment"><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, structured IRs, and assertions are the cure.</li>
     </ol>
   </section>
 
-  <!-- ============ TERMINAL / DEMO SLIDE ============ -->
-  <section>
-    <h2>Terminal output</h2>
-    <div class="terminal">
-      <div class="terminal-bar">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <span class="terminal-title">~/project</span>
-      </div>
-      <pre class="terminal-body"><span class="prompt">$</span> claude "refactor this module"
-<span class="output">I'll refactor the module to use dependency injection...</span>
+  <!-- ================================================================== -->
+  <!-- ACT 1: How LLMs actually work                                      -->
+  <!-- ================================================================== -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Act 1</h2>
+    <p class="kicker"><span class="accent">01</span> · How LLMs actually work</p>
+  </section>
 
-<span class="prompt">$</span> python -m pytest tests/
-<span class="output">======================== 42 passed in 3.21s ========================</span></pre>
+  <!-- --- Everything is a chat completion --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Everything is a chat completion</h2>
+    <p class="kicker"><span class="accent">01a</span> · The technical core without the hype</p>
+  </section>
+
+  <section>
+    <h2>A model is a next-token predictor</h2>
+    <figure>
+      <img src="assets/diagrams/transformer-next-token.svg" alt="Transformer architecture and next-token prediction" style="max-height: 420px;">
+      <figcaption>Decoder-only transformer: embeddings → attention → softmax → next token</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Context is everything that fits in the window</h2>
+    <ul>
+      <li class="fragment">The model sees <strong>only</strong> what is inside the context window</li>
+      <li class="fragment">Everything outside it is <strong>gone</strong> — no persistent memory</li>
+      <li class="fragment">The full transcript is re-sent on <strong>every</strong> API call</li>
+      <li class="fragment">Context filling causes failure — the fix is a fresh session, not more prompting</li>
+    </ul>
+    <aside class="notes">
+      Key point: LLMs are stateless. Each call gets the whole conversation. When the context fills up, quality degrades. Starting fresh is often better than adding more instructions.
+    </aside>
+  </section>
+
+  <section>
+    <h2>System, user, assistant</h2>
+    <figure>
+      <img src="assets/diagrams/chat-roles.svg" alt="Chat roles inside the context window" style="max-height: 380px;">
+      <figcaption>A conversation is a list of role-tagged messages</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Attention: how the model decides what matters</h2>
+    <div class="math-block">
+      \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]
+    </div>
+    <ul>
+      <li class="fragment">Each token attends to all previous tokens</li>
+      <li class="fragment">$d_k$ scales the dot product so softmax doesn't saturate</li>
+      <li class="fragment">Multi-head: multiple attention patterns in parallel</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tool calling is structured output with a feedback loop</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Without tools</h3>
+        <pre><code class="language-json" data-trim>
+{
+  "role": "assistant",
+  "content": "The answer is 42."
+}
+        </code></pre>
+      </div>
+      <div class="col">
+        <h3>With tools</h3>
+        <pre><code class="language-json" data-trim>
+{
+  "role": "assistant",
+  "tool_calls": [{
+    "name": "read_file",
+    "arguments": {"path": "data.csv"}
+  }]
+}
+        </code></pre>
+      </div>
+    </div>
+    <p class="fragment">The harness runs the tool, appends the result, and calls the model again.</p>
+  </section>
+
+  <!-- --- The ecosystem and unbundling --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">The ecosystem — and the unbundling argument</h2>
+    <p class="kicker"><span class="accent">01b</span> · Four separable layers</p>
+  </section>
+
+  <section>
+    <h2>Four layers of the stack</h2>
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>What it is</th><th>Examples</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Model</strong></td><td>The neural network</td><td>GPT, Claude, Gemma, Qwen, DeepSeek</td></tr>
+        <tr><td><strong>Harness</strong></td><td>The tool that runs the loop</td><td>Claude.ai, Cursor, Claude Code, Zed</td></tr>
+        <tr><td><strong>MCP</strong></td><td>Tools the model can call at runtime</td><td>Filesystem, web search, database</td></tr>
+        <tr><td><strong>Skill</strong></td><td>Plain-text instructions in your repo</td><td>CLAUDE.md, AGENTS.md, domain skills</td></tr>
+      </tbody>
+    </table>
+    <aside class="notes">
+      These four layers are separable. You can swap any one without touching the others. This is the unbundling.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Intelligence is commoditizing fast</h2>
+    <figure>
+      <img src="assets/diagrams/openrouter-token-share.svg" alt="Weekly token consumption on OpenRouter by model origin" style="max-height: 380px;">
+      <figcaption>Chinese open-weight models now drive the majority of usage on OpenRouter</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Open weights play catch-up</h2>
+    <figure>
+      <img src="assets/diagrams/open-models-catchup.svg" alt="Open-weight models trail the closed frontier by months, not years" style="max-height: 380px;">
+      <figcaption>The lag from closed frontier to open-weight match keeps shrinking</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>The open–closed gap stays small</h2>
+    <figure>
+      <img src="assets/diagrams/open-closed-eci-gap.svg" alt="Epoch Capabilities Index gap" style="max-height: 380px;">
+      <figcaption>Epoch AI Capabilities Index: open trails by a few months, not years</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>The prescription</h2>
+    <ul>
+      <li class="fragment"><strong>Pick one harness</strong> you are comfortable in</li>
+      <li class="fragment"><strong>Swap models freely</strong> for each task</li>
+      <li class="fragment"><strong>Write skills as readable markdown</strong></li>
+      <li class="fragment"><strong>Keep very good structure</strong> in your work</li>
+    </ul>
+    <p class="fragment" style="margin-top: 1em;"><em>Lock-in is the risk; model loyalty is a mistake.</em></p>
+  </section>
+
+  <section>
+    <h2>Harness, tools, and the model</h2>
+    <figure>
+      <img src="assets/diagrams/harness-tools-llm.svg" alt="Harness and tools run locally; the LLM is remote" style="max-height: 380px;">
+      <figcaption>Harness + tools run on your machine; the LLM lives behind an API</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- ACT 2: Working with agents                                          -->
+  <!-- ================================================================== -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Act 2</h2>
+    <p class="kicker"><span class="accent">02</span> · Working with agents</p>
+  </section>
+
+  <!-- --- The escape–enter loop in practice --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">The escape–enter loop in practice</h2>
+    <p class="kicker"><span class="accent">02a</span> · Live demo</p>
+  </section>
+
+  <section>
+    <h2>The two-layer model</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Natural language in</h3>
+        <p>You describe what you want in plain English. The agent interprets, plans, and acts.</p>
+      </div>
+      <div class="col">
+        <h3>Structured output out</h3>
+        <p>Diffs, file edits, shell commands — all reviewable. <strong>You review diffs, not code.</strong></p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ CALLOUT / ALERT ============ -->
   <section>
-    <h2>Callout boxes</h2>
-    <div class="callout warning">
-      <strong>Warning:</strong> LLMs can hallucinate. Always verify outputs against ground truth.
-    </div>
+    <h2>When to hit Escape</h2>
+    <ul>
+      <li class="fragment">The agent is going in the wrong direction</li>
+      <li class="fragment">It's making changes you didn't ask for</li>
+      <li class="fragment">Context is getting polluted with errors</li>
+      <li class="fragment"><strong>"Toxic context"</strong> — when a mistake poisons all subsequent reasoning</li>
+    </ul>
+    <p class="fragment" style="margin-top: 1em;">The fix: <strong>start a fresh session</strong>, not more prompting.</p>
+  </section>
+
+  <section>
+    <h2>The independence principle</h2>
+    <blockquote>
+      <p>Never let the same session verify its own work.</p>
+    </blockquote>
+    <ul>
+      <li class="fragment">Agent writes code → you review the diff</li>
+      <li class="fragment">Agent runs tests → a <strong>different</strong> session or you verify the output</li>
+      <li class="fragment">Same context = same blind spots</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Permission boundaries</h2>
     <div class="callout tip">
-      <strong>Tip:</strong> Use structured outputs (JSON mode) for reliable data extraction.
+      <strong>Approve:</strong> reads and edits inside the project directory
     </div>
+    <div class="callout warning">
+      <strong>Deny:</strong> destructive shell commands, writes outside the project
+    </div>
+    <p class="fragment">The agent can never delete or overwrite your data if permissions are set correctly.</p>
+  </section>
+
+  <section>
+    <h2>CLAUDE.md vs AGENTS.md</h2>
+    <table>
+      <thead>
+        <tr><th>File</th><th>Purpose</th><th>What goes in</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>CLAUDE.md</code></td><td>Project conventions</td><td>Data assumptions, naming rules, niche tools</td></tr>
+        <tr><td><code>AGENTS.md</code></td><td>Agent-specific config</td><td>Permissions, model preferences, workflow</td></tr>
+      </tbody>
+    </table>
+    <p class="fragment"><strong>What does NOT belong:</strong> everything else. Irrelevant instructions actively hurt.</p>
+  </section>
+
+  <!-- --- Skills and project configuration --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Skills and project configuration</h2>
+    <p class="kicker"><span class="accent">02b</span> · Two kinds of plain text that make agents smarter</p>
+  </section>
+
+  <section>
+    <h2>Project config: CLAUDE.md</h2>
+    <ul>
+      <li class="fragment">Your conventions, data assumptions, preferred tools</li>
+      <li class="fragment">Start with <strong>3–5 rules</strong></li>
+      <li class="fragment">Add one each time you correct the agent twice</li>
+      <li class="fragment">This is the minimum viable project config</li>
+    </ul>
+    <div class="callout tip fragment">
+      <strong>Tip:</strong> If you can't write it in one sentence, you don't understand it yet.
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills: reusable task templates</h2>
+    <ul>
+      <li class="fragment">A skill = a markdown file with a fixed output location, commit convention, and stopping rules</li>
+      <li class="fragment">Domain-specific, not generic</li>
+      <li class="fragment">The agent reads the skill and follows it like a recipe</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Worked example: paper-writing skill set</h2>
+    <table>
+      <thead>
+        <tr><th>Skill</th><th>Task queue</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>WRITING</code></td><td>Draft sections, revise, format</td></tr>
+        <tr><td><code>MODEL</code></td><td>Specify econometric model, robustness checks</td></tr>
+        <tr><td><code>LITERATURE</code></td><td>Find papers, summarize, cite</td></tr>
+        <tr><td><code>EMPIRICS</code></td><td>Run regressions, create tables, validate</td></tr>
+        <tr><td><code>EDITING</code></td><td>Proofread, consistency check, style</td></tr>
+      </tbody>
+    </table>
+    <p class="fragment">Each skill has its own queue. Separation of concerns.</p>
+  </section>
+
+  <section>
+    <h2>Why not dump everything in one file?</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>❌ One giant file</h3>
+        <ul>
+          <li>Context window fills up</li>
+          <li>Conflicting instructions</li>
+          <li>Agent ignores most of it</li>
+          <li>Actively degrades performance</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>✅ Separated skills</h3>
+        <ul>
+          <li>Each skill is focused</li>
+          <li>Agent loads only what's needed</li>
+          <li>Easy to test and iterate</li>
+          <li>Reusable across projects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Exercise: Write a config and a skill --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Exercise</h2>
+    <p class="kicker"><span class="accent">02c</span> · Write a project config and a skill</p>
+  </section>
+
+  <section>
+    <h2>Your turn (20 min)</h2>
+    <ol>
+      <li class="fragment"><strong>10 min:</strong> Draft a CLAUDE.md for your project
+        <ul>
+          <li>Tools the agent does not know</li>
+          <li>Naming conventions, data paths</li>
+          <li>Verification rules</li>
+        </ul>
+      </li>
+      <li class="fragment"><strong>5 min:</strong> Draft a minimal skill for one recurring task</li>
+      <li class="fragment"><strong>5 min:</strong> Share one thing that was hard to write down</li>
+    </ol>
+    <p class="fragment" style="margin-top: 1em;"><em>The act of writing conventions in plain text for a model forces a precision that is valuable even if you never use the skill.</em></p>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- ACT 3: Structure, reproducibility, and the agentic risk            -->
+  <!-- ================================================================== -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Act 3</h2>
+    <p class="kicker"><span class="accent">03</span> · Structure, reproducibility, and the agentic risk</p>
+  </section>
+
+  <!-- --- Reproducibility from Day 1 --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Reproducibility from Day 1</h2>
+    <p class="kicker"><span class="accent">03a</span> · The prerequisite</p>
+  </section>
+
+  <section>
+    <h2>Day-1 practices are agent-compatible practices</h2>
+    <ul>
+      <li class="fragment">No hard-coded paths</li>
+      <li class="fragment">No overwriting raw data</li>
+      <li class="fragment"><code>main.do</code> with step flags</li>
+      <li class="fragment">README from day 1</li>
+      <li class="fragment">Secrets in environment variables</li>
+      <li class="fragment">Checksum-guarded downloads</li>
+    </ul>
+    <p class="fragment" style="margin-top: 1em;">These are not just journal requirements — they are what makes your project <strong>legible to an agent</strong>.</p>
+  </section>
+
+  <section>
+    <h2>The old risk vs the new risk</h2>
+    <div class="columns">
+      <div class="col">
+        <h3>Old reproducibility risk</h3>
+        <p>Someone else can't re-run your code. Fixed by Day-1 practices.</p>
+      </div>
+      <div class="col">
+        <h3>New agentic risk</h3>
+        <p><em>You</em> can't re-run your code. The same prompt does not produce the same code twice.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Models are non-deterministic</h2>
+    <ul>
+      <li class="fragment">Temperature, sampling, and system state mean the same prompt → different code</li>
+      <li class="fragment">The model you used is <strong>deprecated within a year</strong></li>
+      <li class="fragment">Without pinning, your paper is not reproducible — even by you</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The cure: treat the interaction as data</h2>
     <div class="callout info">
-      <strong>Key insight:</strong> Prompt engineering is an empirical discipline, not a theoretical one.
+      <strong>Pin the exact model version. Commit the prompt and the transcript alongside the diff.</strong>
     </div>
+    <p class="fragment" style="margin-top: 1em;">The prompt is part of your methods section.</p>
+  </section>
+
+  <!-- --- dodo demo --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">dodo: structured IR for .do pipelines</h2>
+    <p class="kicker"><span class="accent">03b</span> · Live demo</p>
+  </section>
+
+  <section>
+    <h2>What is dodo?</h2>
+    <ul>
+      <li class="fragment">A DuckDB extension that runs your <code>.do</code> files unchanged</li>
+      <li class="fragment"><code>show sql</code> — see what the agent actually produced, not what you asked for</li>
+      <li class="fragment"><code>assert</code> — catch silent failures</li>
+      <li class="fragment"><code>dodoc</code> — compile the pipeline to SQL for CI</li>
+    </ul>
+    <p class="fragment" style="margin-top: 1em;">The <code>.do</code> syntax is a <strong>structured intermediate representation</strong> — the agent generates it, you audit the SQL it produces, the Makefile runs it.</p>
+  </section>
+
+  <section>
+    <h2>Silent failures to watch for</h2>
+    <div class="callout warning">
+      <strong>Agent dropped observations to force a merge</strong>
+    </div>
+    <div class="callout warning">
+      <strong>Agent treated panel as cross-section</strong>
+    </div>
+    <div class="callout warning">
+      <strong>Agent used an ID that is not stable over time</strong>
+    </div>
+    <p class="fragment">"It ran without errors" is <strong>not</strong> a test.</p>
+  </section>
+
+  <!-- --- Exercise: Find the silent failure --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Exercise</h2>
+    <p class="kicker"><span class="accent">03c</span> · Find the silent failure in your own pipeline</p>
+  </section>
+
+  <section>
+    <h2>Your turn (75 min)</h2>
+    <p>Bring a <code>.do</code> file or use the provided Hungarian company registry dataset.</p>
+    <ol>
+      <li class="fragment">Run it through dodo</li>
+      <li class="fragment">Use <code>show sql</code> to find one thing the agent generated that you would not have caught by reading the <code>.do</code> file</li>
+      <li class="fragment">Write two <code>assert</code> statements that would catch it next time</li>
+      <li class="fragment">Add those asserts to a <code>make test</code> target</li>
+    </ol>
+    <aside class="notes">
+      Debrief: each participant names their silent failure. Collect these — they form the workshop's shared artifact.
+    </aside>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- CLOSING                                                             -->
+  <!-- ================================================================== -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Closing</h2>
+    <p class="kicker"><span class="accent">04</span> · What comes next</p>
+  </section>
+
+  <section>
+    <h2>What do you actually do on Monday?</h2>
+    <ol>
+      <li class="fragment"><strong>Which harness</strong> to start with?</li>
+      <li class="fragment"><strong>Which model</strong> for which task?</li>
+      <li class="fragment"><strong>What goes in your CLAUDE.md</strong> — the minimum viable project config?</li>
+      <li class="fragment"><strong>What structural change</strong> does your project need before an agent can work in it?</li>
+      <li class="fragment"><strong>Which failure modes</strong> to watch for?</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Failure modes to watch for</h2>
+    <ul>
+      <li class="fragment">Hallucination — agent invents facts, citations, APIs</li>
+      <li class="fragment">Silent data decisions — drops rows, changes types, rounds values</li>
+      <li class="fragment">Scope creep — agent rewrites code you didn't ask to change</li>
+      <li class="fragment">Context degradation — quality drops as conversation grows</li>
+      <li class="fragment">Confident domain errors — plausible-sounding but wrong economics</li>
+      <li class="fragment">Restricted data leaving your machine — DUA / IRB violations</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The durable investment</h2>
+    <blockquote>
+      <p>Day-1 structure was already right. Skills make it agent-legible. Assertions make it auditable. The models will keep getting cheaper; <strong>the structure is the durable investment</strong>.</p>
+    </blockquote>
   </section>
 
   <!-- ============ CLOSING SLIDE ============ -->
   <section class="title-slide" data-background-color="#1D1D40">
     <img class="x9-logo" src="assets/9x-logo.svg" alt="The 9x Academic">
     <h2>Thank you</h2>
-    <p class="subtitle">Questions?</p>
-    <p class="contact">your.email@university.edu · <a href="https://github.com/yourhandle">github.com/yourhandle</a></p>
+    <p class="subtitle">Write your five answers. We collect them.</p>
+    <p class="contact">koren@ceu.edu · <a href="https://github.com/codedthinking/2026-06-11-ai-workshop">github.com/codedthinking/2026-06-11-ai-workshop</a></p>
   </section>
 
 </div>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" font-family="'Brockmann','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;display=swap');
+      .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+      .t  { fill:#fff; font-weight:700; }
+      .l  { fill:#D4D2E3; }
+      .m  { fill:#9795B5; }
+      .red{ fill:#E61E25; }
+      .cy { fill:#35E0D8; }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#9795B5"/>
+    </marker>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#E61E25"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="500" fill="#1D1D40"/>
+
+  <!-- header -->
+  <text x="50" y="52" class="mono cy" font-size="13" letter-spacing="3">~ TRANSFORMER ARCHITECTURE</text>
+  <text x="50" y="92" class="t" font-size="32">Everything is next-token prediction</text>
+  <text x="50" y="120" class="m" font-size="15">A decoder-only language model reads a sequence of tokens and predicts the most likely next one.</text>
+
+  <!-- flow arrows -->
+  <line x1="192" y1="270" x2="221" y2="270" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="377" y1="270" x2="406" y2="270" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="712" y1="270" x2="741" y2="270" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="867" y1="270" x2="896" y2="270" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- 1. tokens -->
+  <text x="120" y="172" class="mono m" font-size="12" text-anchor="middle">input tokens</text>
+  <rect x="50" y="185" width="140" height="170" rx="10" fill="#24244D" stroke="rgba(151,149,181,0.18)"/>
+  <g class="mono" font-size="14" text-anchor="middle">
+    <rect x="70" y="199" width="100" height="24" rx="6" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/><text x="120" y="216" class="l">The</text>
+    <rect x="70" y="227" width="100" height="24" rx="6" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/><text x="120" y="244" class="l">cat</text>
+    <rect x="70" y="255" width="100" height="24" rx="6" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/><text x="120" y="272" class="l">sat</text>
+    <rect x="70" y="283" width="100" height="24" rx="6" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/><text x="120" y="300" class="l">on</text>
+    <rect x="70" y="311" width="100" height="24" rx="6" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/><text x="120" y="328" class="l">the</text>
+  </g>
+
+  <!-- 2. embeddings -->
+  <text x="300" y="172" class="mono m" font-size="12" text-anchor="middle">vectorize</text>
+  <rect x="225" y="185" width="150" height="170" rx="10" fill="#24244D" stroke="rgba(151,149,181,0.18)"/>
+  <text x="300" y="258" class="t" font-size="16" text-anchor="middle">embeddings</text>
+  <text x="300" y="283" class="m" font-size="12" text-anchor="middle">+ positional encoding</text>
+  <g>
+    <rect x="258" y="300" width="12" height="22" rx="2" fill="#35E0D8" opacity="0.7"/>
+    <rect x="276" y="300" width="12" height="22" rx="2" fill="#9795B5" opacity="0.6"/>
+    <rect x="294" y="300" width="12" height="22" rx="2" fill="#E61E25" opacity="0.8"/>
+    <rect x="312" y="300" width="12" height="22" rx="2" fill="#9795B5" opacity="0.6"/>
+    <rect x="330" y="300" width="12" height="22" rx="2" fill="#35E0D8" opacity="0.5"/>
+  </g>
+
+  <!-- 3. transformer block -->
+  <text x="560" y="172" class="mono m" font-size="12" text-anchor="middle">stacked layers</text>
+  <rect x="410" y="155" width="300" height="215" rx="10" fill="#24244D" stroke="rgba(151,149,181,0.32)"/>
+  <text x="430" y="188" class="t" font-size="17">Transformer block</text>
+  <text x="690" y="188" class="red mono" font-size="15" text-anchor="end">× N</text>
+  <rect x="430" y="205" width="260" height="78" rx="8" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
+  <text x="445" y="235" class="t" font-size="15">Masked self-attention</text>
+  <text x="445" y="258" class="m" font-size="11.5">each token attends to all earlier tokens —</text>
+  <text x="445" y="274" class="m" font-size="11.5">this is how context is mixed in</text>
+  <rect x="430" y="293" width="260" height="50" rx="8" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
+  <text x="445" y="323" class="t" font-size="15">Feed-forward network</text>
+  <text x="560" y="360" class="m" font-size="11.5" text-anchor="middle">+ residual connections + layer norm</text>
+
+  <!-- 4. softmax -->
+  <text x="805" y="172" class="mono m" font-size="12" text-anchor="middle">to probabilities</text>
+  <rect x="745" y="185" width="120" height="170" rx="10" fill="#24244D" stroke="rgba(151,149,181,0.18)"/>
+  <text x="805" y="252" class="m" font-size="12" text-anchor="middle">logits</text>
+  <text x="805" y="278" class="t" font-size="17" text-anchor="middle">softmax</text>
+  <text x="805" y="300" class="m" font-size="12" text-anchor="middle">over vocab</text>
+
+  <!-- 5. probabilities -->
+  <text x="900" y="172" class="mono m" font-size="12">next-token probabilities</text>
+  <g class="mono" font-size="13">
+    <!-- mat (top) -->
+    <rect x="965" y="201" width="102" height="15" rx="3" fill="#E61E25"/>
+    <text x="912" y="213" class="t">mat</text><text x="1078" y="213" class="cy">0.62</text>
+    <rect x="965" y="229" width="20" height="15" rx="3" fill="#9795B5" opacity="0.5"/>
+    <text x="912" y="241" class="l">on</text><text x="1078" y="241" class="m">0.12</text>
+    <rect x="965" y="257" width="15" height="15" rx="3" fill="#9795B5" opacity="0.5"/>
+    <text x="912" y="269" class="l">floor</text><text x="1078" y="269" class="m">0.09</text>
+    <rect x="965" y="285" width="10" height="15" rx="3" fill="#9795B5" opacity="0.5"/>
+    <text x="912" y="297" class="l">rug</text><text x="1078" y="297" class="m">0.06</text>
+    <text x="912" y="325" class="m">⋯</text>
+  </g>
+  <text x="1030" y="213" class="m" font-size="11" font-style="italic">← sampled</text>
+
+  <!-- autoregressive loop -->
+  <path d="M1030 355 L1030 430 L120 430 L120 357" fill="none" stroke="#E61E25" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+  <text x="575" y="452" class="mono m" font-size="12.5" text-anchor="middle">autoregressive — append the predicted token, then run the whole sequence through again</text>
+  <text x="1150" y="488" class="mono m" font-size="10" text-anchor="end" opacity="0.7">the9x.ac &#183; Agentic AI for Researchers</text>
+</svg>
