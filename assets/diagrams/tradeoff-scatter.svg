@@ -20,90 +20,106 @@
 
   <!-- legend -->
   <g font-size="14">
-    <circle cx="640" cy="42" r="6" fill="#E61E25" fill-opacity="0.7"/><text x="652" y="46" class="l">closed</text>
-    <circle cx="730" cy="42" r="6" fill="#35E0D8" fill-opacity="0.7"/><text x="742" y="46" class="l">open weights</text>
+    <circle cx="600" cy="42" r="6" fill="#E61E25" fill-opacity="0.7"/><text x="612" y="46" class="l">closed</text>
+    <circle cx="690" cy="42" r="6" fill="#35E0D8" fill-opacity="0.7"/><text x="702" y="46" class="l">open weights</text>
+    <circle cx="815" cy="42" r="6" fill="#9795B5" fill-opacity="0.4" stroke="#9795B5" stroke-width="1" stroke-dasharray="2 2"/><text x="827" y="46" class="l">dashed = extrapolated</text>
   </g>
 
   <!-- axes -->
-  <line x1="110" y1="120" x2="110" y2="510" stroke="#9795B5" stroke-width="1.2"/>
-  <line x1="110" y1="510" x2="990" y2="510" stroke="#9795B5" stroke-width="1.2"/>
+  <line x1="110" y1="120" x2="110" y2="500" stroke="#9795B5" stroke-width="1.2"/>
+  <line x1="110" y1="500" x2="990" y2="500" stroke="#9795B5" stroke-width="1.2"/>
   <text x="100" y="112" class="mono m" font-size="13" text-anchor="end">ECI &#8593;</text>
-  <text x="995" y="530" class="mono m" font-size="13">&#36;/Mtok &#8594;</text>
-  <line x1="168.4" y1="120" x2="168.4" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="168.4" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;0.05</text>
-  <line x1="256.7" y1="120" x2="256.7" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="256.7" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;0.1</text>
-  <line x1="345.0" y1="120" x2="345.0" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="345.0" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;0.2</text>
-  <line x1="461.7" y1="120" x2="461.7" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="461.7" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;0.5</text>
-  <line x1="550.0" y1="120" x2="550.0" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="550.0" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;1</text>
-  <line x1="638.3" y1="120" x2="638.3" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="638.3" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;2</text>
-  <line x1="755.0" y1="120" x2="755.0" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="755.0" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;5</text>
-  <line x1="843.3" y1="120" x2="843.3" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="843.3" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;10</text>
-  <line x1="983.3" y1="120" x2="983.3" y2="510" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
-  <text x="983.3" y="530" class="mono m" font-size="12" text-anchor="middle">&#36;30</text>
-  <line x1="110" y1="461.2" x2="990" y2="461.2" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="466.2" class="mono m" font-size="12" text-anchor="end">130</text>
-  <line x1="110" y1="412.5" x2="990" y2="412.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="417.5" class="mono m" font-size="12" text-anchor="end">135</text>
-  <line x1="110" y1="363.8" x2="990" y2="363.8" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="368.8" class="mono m" font-size="12" text-anchor="end">140</text>
-  <line x1="110" y1="315.0" x2="990" y2="315.0" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="320.0" class="mono m" font-size="12" text-anchor="end">145</text>
-  <line x1="110" y1="266.2" x2="990" y2="266.2" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="271.2" class="mono m" font-size="12" text-anchor="end">150</text>
-  <line x1="110" y1="217.5" x2="990" y2="217.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="222.5" class="mono m" font-size="12" text-anchor="end">155</text>
-  <line x1="110" y1="168.8" x2="990" y2="168.8" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
-  <text x="100" y="173.8" class="mono m" font-size="12" text-anchor="end">160</text>
-  <circle cx="373.4" cy="309.2" r="18.0" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5 mini  |  ECI 145.6  |  $0.25/Mtok  |  90,400 reqs  |  closed</title></circle>
-  <circle cx="433.3" cy="387.2" r="16.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-4.1  |  ECI 137.6  |  $0.40/Mtok  |  73,055 reqs  |  closed</title></circle>
-  <circle cx="433.3" cy="404.0" r="16.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-4.1 mini  |  ECI 135.9  |  $0.40/Mtok  |  73,055 reqs  |  closed</title></circle>
-  <circle cx="256.7" cy="452.3" r="16.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-4.1 nano  |  ECI 130.9  |  $0.10/Mtok  |  72,389 reqs  |  closed</title></circle>
-  <circle cx="578.4" cy="291.3" r="16.1" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Grok 4  |  ECI 147.4  |  $1.25/Mtok  |  67,869 reqs  |  closed</title></circle>
-  <circle cx="513.4" cy="278.5" r="15.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.4 mini  |  ECI 148.7  |  $0.75/Mtok  |  60,492 reqs  |  closed</title></circle>
-  <circle cx="666.7" cy="206.5" r="12.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.4  |  ECI 156.1  |  $2.50/Mtok  |  34,485 reqs  |  closed</title></circle>
-  <circle cx="755.0" cy="186.1" r="11.9" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.5  |  ECI 158.2  |  $5.00/Mtok  |  28,984 reqs  |  closed</title></circle>
-  <circle cx="396.6" cy="360.0" r="11.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Gemini 2.5 Flash  |  ECI 140.4  |  $0.30/Mtok  |  26,797 reqs  |  closed</title></circle>
-  <circle cx="345.0" cy="303.0" r="11.2" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.4 nano  |  ECI 146.2  |  $0.20/Mtok  |  23,673 reqs  |  closed</title></circle>
-  <circle cx="406.8" cy="275.2" r="10.1" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Qwen 3.6 Plus  |  ECI 149.1  |  $0.33/Mtok  |  17,254 reqs  |  closed</title></circle>
-  <circle cx="336.7" cy="313.4" r="9.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Qwen 3.6 Flash  |  ECI 145.2  |  $0.19/Mtok  |  14,101 reqs  |  closed</title></circle>
-  <circle cx="601.7" cy="204.7" r="9.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Gemini 3.5 Flash  |  ECI 156.3  |  $1.50/Mtok  |  13,873 reqs  |  closed</title></circle>
-  <circle cx="578.4" cy="224.5" r="9.1" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Grok 4.20  |  ECI 154.3  |  $1.25/Mtok  |  11,821 reqs  |  closed</title></circle>
-  <circle cx="419.8" cy="467.1" r="8.4" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Qwen2.5-72B  |  ECI 129.4  |  $0.36/Mtok  |  8,864 reqs  |  open</title></circle>
-  <circle cx="433.3" cy="283.6" r="8.3" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Kimi K2.5  |  ECI 148.2  |  $0.40/Mtok  |  8,716 reqs  |  open</title></circle>
-  <circle cx="638.3" cy="201.6" r="6.9" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Gemini 3.1 Pro Preview  |  ECI 156.6  |  $2.00/Mtok  |  3,951 reqs  |  closed</title></circle>
-  <circle cx="449.7" cy="366.3" r="5.4" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Qwen3-235B-A22B  |  ECI 139.7  |  $0.45/Mtok  |  888 reqs  |  open</title></circle>
-  <circle cx="500.9" cy="250.6" r="5.1" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Kimi K2.6  |  ECI 151.6  |  $0.68/Mtok  |  548 reqs  |  open</title></circle>
-  <circle cx="755.0" cy="214.8" r="4.8" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Claude Opus 4.6  |  ECI 155.3  |  $5.00/Mtok  |  300 reqs  |  closed</title></circle>
-  <circle cx="638.3" cy="472.5" r="4.7" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Mistral Large 2  |  ECI 128.8  |  $2.00/Mtok  |  254 reqs  |  open</title></circle>
-  <circle cx="983.3" cy="175.1" r="4.7" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.5 Pro  |  ECI 159.3  |  $30.00/Mtok  |  228 reqs  |  closed</title></circle>
-  <circle cx="201.8" cy="450.0" r="4.5" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1"><title>Phi-4  |  ECI 131.2  |  $0.07/Mtok  |  139 reqs  |  open</title></circle>
-  <circle cx="983.3" cy="190.9" r="4.4" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>GPT-5.4 Pro  |  ECI 157.7  |  $30.00/Mtok  |  71 reqs  |  closed</title></circle>
-  <circle cx="690.0" cy="241.1" r="4.3" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Claude Sonnet 4.6  |  ECI 152.6  |  $3.00/Mtok  |  34 reqs  |  closed</title></circle>
-  <circle cx="755.0" cy="206.0" r="4.2" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1"><title>Claude Opus 4.7  |  ECI 156.2  |  $5.00/Mtok  |  22 reqs  |  closed</title></circle>
-  <text x="974.6" y="171.1" class="mono red" font-size="11" text-anchor="end">GPT-5.5 Pro</text>
-  <text x="771.0" y="182.1" class="mono red" font-size="11" text-anchor="start">GPT-5.5</text>
-  <text x="615.1" y="200.7" class="mono red" font-size="11" text-anchor="start">Gem 3.5 Flash</text>
-  <text x="763.2" y="202.0" class="mono red" font-size="11" text-anchor="start">Opus 4.7</text>
-  <text x="683.4" y="202.5" class="mono red" font-size="11" text-anchor="start">GPT-5.4</text>
-  <text x="763.8" y="210.8" class="mono red" font-size="11" text-anchor="start">Opus 4.6</text>
-  <text x="698.2" y="237.1" class="mono red" font-size="11" text-anchor="start">Sonnet 4.6</text>
-  <text x="510.0" y="246.6" class="mono cy" font-size="11" text-anchor="start">Kimi K2.6</text>
-  <text x="420.9" y="271.2" class="mono red" font-size="11" text-anchor="start">Qwen 3.6+</text>
-  <text x="532.8" y="274.5" class="mono red" font-size="11" text-anchor="start">GPT-5.4 mini</text>
-  <text x="445.6" y="279.6" class="mono cy" font-size="11" text-anchor="start">Kimi K2.5</text>
-  <text x="598.6" y="287.3" class="mono red" font-size="11" text-anchor="start">Grok 4</text>
-  <text x="360.1" y="299.0" class="mono red" font-size="11" text-anchor="start">GPT-5.4 nano</text>
-  <text x="395.4" y="305.2" class="mono red" font-size="11" text-anchor="start">GPT-5 mini</text>
-  <text x="412.2" y="356.0" class="mono red" font-size="11" text-anchor="start">Gem 2.5 Flash</text>
-  <text x="459.1" y="362.3" class="mono cy" font-size="11" text-anchor="start">Qwen3 235B</text>
-  <text x="210.3" y="446.0" class="mono cy" font-size="11" text-anchor="start">Phi-4</text>
-  <text x="277.2" y="448.3" class="mono red" font-size="11" text-anchor="start">GPT-4.1 nano</text>
-  <text x="50" y="582" class="mono m" font-size="11">Sources: Epoch AI Capabilities Index (epoch.ai/data), OpenRouter API (openrouter.ai). June 2026.</text>
+  <text x="995" y="520" class="mono m" font-size="13">&#36;/Mtok &#8594;</text>
+  <line x1="180.0" y1="120" x2="180.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="180.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;0.05</text>
+  <line x1="286.0" y1="120" x2="286.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="286.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;0.1</text>
+  <line x1="392.0" y1="120" x2="392.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="392.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;0.2</text>
+  <line x1="532.0" y1="120" x2="532.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="532.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;0.5</text>
+  <line x1="638.0" y1="120" x2="638.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="638.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;1</text>
+  <line x1="744.0" y1="120" x2="744.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="744.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;2</text>
+  <line x1="884.0" y1="120" x2="884.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="884.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;5</text>
+  <line x1="990.0" y1="120" x2="990.0" y2="500" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>
+  <text x="990.0" y="520" class="mono m" font-size="12" text-anchor="middle">&#36;10</text>
+  <line x1="110" y1="452.5" x2="990" y2="452.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="457.5" class="mono m" font-size="12" text-anchor="end">130</text>
+  <line x1="110" y1="405.0" x2="990" y2="405.0" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="410.0" class="mono m" font-size="12" text-anchor="end">135</text>
+  <line x1="110" y1="357.5" x2="990" y2="357.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="362.5" class="mono m" font-size="12" text-anchor="end">140</text>
+  <line x1="110" y1="310.0" x2="990" y2="310.0" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="315.0" class="mono m" font-size="12" text-anchor="end">145</text>
+  <line x1="110" y1="262.5" x2="990" y2="262.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="267.5" class="mono m" font-size="12" text-anchor="end">150</text>
+  <line x1="110" y1="215.0" x2="990" y2="215.0" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="220.0" class="mono m" font-size="12" text-anchor="end">155</text>
+  <line x1="110" y1="167.5" x2="990" y2="167.5" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>
+  <text x="100" y="172.5" class="mono m" font-size="12" text-anchor="end">160</text>
+  <circle cx="510.7" cy="268.6" r="18.0" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>DS V4 Pro  |  ECI 149.4 (extrapolated from OpenRouter II)  |  $0.43/Mtok  |  100,199 reqs  |  open</title></circle>
+  <circle cx="286.0" cy="443.8" r="17.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-4.1 nano  |  ECI 130.9 (Epoch AI ECI)  |  $0.10/Mtok  |  94,226 reqs  |  closed</title></circle>
+  <circle cx="497.9" cy="396.7" r="17.1" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-4.1 mini  |  ECI 135.9 (Epoch AI ECI)  |  $0.40/Mtok  |  88,310 reqs  |  closed</title></circle>
+  <circle cx="426.1" cy="304.4" r="16.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-5 mini  |  ECI 145.6 (Epoch AI ECI)  |  $0.25/Mtok  |  79,966 reqs  |  closed</title></circle>
+  <circle cx="594.0" cy="274.5" r="14.7" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-5.4 mini  |  ECI 148.7 (Epoch AI ECI)  |  $0.75/Mtok  |  58,212 reqs  |  closed</title></circle>
+  <circle cx="672.1" cy="286.9" r="12.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Grok 4  |  ECI 147.4 (Epoch AI ECI)  |  $1.25/Mtok  |  37,898 reqs  |  closed</title></circle>
+  <circle cx="778.1" cy="204.3" r="12.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-5.4  |  ECI 156.1 (Epoch AI ECI)  |  $2.50/Mtok  |  37,494 reqs  |  closed</title></circle>
+  <circle cx="453.9" cy="225.3" r="12.1" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>MiniMax M3  |  ECI 153.9 (extrapolated from OpenRouter II)  |  $0.30/Mtok  |  33,517 reqs  |  closed</title></circle>
+  <circle cx="497.9" cy="244.3" r="11.6" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>Qwen 3.7+  |  ECI 151.9 (extrapolated from OpenRouter II)  |  $0.40/Mtok  |  29,347 reqs  |  closed</title></circle>
+  <circle cx="884.0" cy="184.5" r="10.9" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-5.5  |  ECI 158.2 (Epoch AI ECI)  |  $5.00/Mtok  |  24,033 reqs  |  closed</title></circle>
+  <circle cx="392.0" cy="298.3" r="10.7" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>GPT-5.4 nano  |  ECI 146.2 (Epoch AI ECI)  |  $0.20/Mtok  |  22,856 reqs  |  closed</title></circle>
+  <circle cx="466.2" cy="271.3" r="10.2" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Qwen 3.6 Plus  |  ECI 149.1 (Epoch AI ECI)  |  $0.33/Mtok  |  19,387 reqs  |  closed</title></circle>
+  <circle cx="672.1" cy="199.7" r="9.9" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>Qwen 3.7 Max  |  ECI 156.6 (extrapolated from OpenRouter II)  |  $1.25/Mtok  |  17,538 reqs  |  closed</title></circle>
+  <circle cx="510.7" cy="237.5" r="9.7" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>MiMo V2.5 Pro  |  ECI 152.6 (extrapolated from OpenRouter II)  |  $0.43/Mtok  |  16,805 reqs  |  open</title></circle>
+  <circle cx="453.9" cy="353.9" r="9.7" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Gemini 2.5 Flash  |  ECI 140.4 (Epoch AI ECI)  |  $0.30/Mtok  |  16,335 reqs  |  closed</title></circle>
+  <circle cx="382.1" cy="308.4" r="9.3" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Qwen 3.6 Flash  |  ECI 145.2 (Epoch AI ECI)  |  $0.19/Mtok  |  14,397 reqs  |  closed</title></circle>
+  <circle cx="672.1" cy="221.8" r="9.0" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Grok 4.20  |  ECI 154.3 (Epoch AI ECI)  |  $1.25/Mtok  |  12,887 reqs  |  closed</title></circle>
+  <circle cx="497.9" cy="279.4" r="8.0" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Kimi K2.5  |  ECI 148.2 (Epoch AI ECI)  |  $0.40/Mtok  |  8,320 reqs  |  open</title></circle>
+  <circle cx="481.8" cy="458.2" r="8.0" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Qwen2.5-72B  |  ECI 129.4 (Epoch AI ECI)  |  $0.36/Mtok  |  8,062 reqs  |  open</title></circle>
+  <circle cx="744.0" cy="199.5" r="7.7" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Gemini 3.1 Pro Preview  |  ECI 156.6 (Epoch AI ECI)  |  $2.00/Mtok  |  7,118 reqs  |  closed</title></circle>
+  <circle cx="700.0" cy="202.5" r="7.0" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Gemini 3.5 Flash  |  ECI 156.3 (Epoch AI ECI)  |  $1.50/Mtok  |  4,475 reqs  |  closed</title></circle>
+  <circle cx="220.1" cy="441.6" r="6.6" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Phi-4  |  ECI 131.2 (Epoch AI ECI)  |  $0.07/Mtok  |  3,438 reqs  |  open</title></circle>
+  <circle cx="884.0" cy="134.8" r="5.4" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>Opus 4.8  |  ECI 163.4 (extrapolated from OpenRouter II)  |  $5.00/Mtok  |  996 reqs  |  closed</title></circle>
+  <circle cx="517.6" cy="360.0" r="5.3" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Qwen3-235B-A22B  |  ECI 139.7 (Epoch AI ECI)  |  $0.45/Mtok  |  894 reqs  |  open</title></circle>
+  <circle cx="579.0" cy="247.3" r="5.2" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Kimi K2.6  |  ECI 151.6 (Epoch AI ECI)  |  $0.68/Mtok  |  737 reqs  |  open</title></circle>
+  <circle cx="634.9" cy="269.9" r="5.0" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" stroke-dasharray="3 2" cursor="pointer"><title>GLM-5.1  |  ECI 149.2 (extrapolated from OpenRouter II)  |  $0.98/Mtok  |  542 reqs  |  closed</title></circle>
+  <circle cx="744.0" cy="463.4" r="4.8" fill="#35E0D8" fill-opacity="0.55" stroke="#35E0D8" stroke-width="1.2" cursor="pointer"><title>Mistral Large 2  |  ECI 128.8 (Epoch AI ECI)  |  $2.00/Mtok  |  369 reqs  |  open</title></circle>
+  <circle cx="884.0" cy="212.3" r="4.5" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Claude Opus 4.6  |  ECI 155.3 (Epoch AI ECI)  |  $5.00/Mtok  |  104 reqs  |  closed</title></circle>
+  <circle cx="884.0" cy="203.7" r="4.3" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Claude Opus 4.7  |  ECI 156.2 (Epoch AI ECI)  |  $5.00/Mtok  |  60 reqs  |  closed</title></circle>
+  <circle cx="805.9" cy="238.0" r="4.2" fill="#E61E25" fill-opacity="0.55" stroke="#E61E25" stroke-width="1.2" cursor="pointer"><title>Claude Sonnet 4.6  |  ECI 152.6 (Epoch AI ECI)  |  $3.00/Mtok  |  23 reqs  |  closed</title></circle>
+  <text x="890.0" y="126.8" class="mono red" font-size="10" text-anchor="start">Opus 4.8</text>
+  <text x="898.9" y="180.5" class="mono red" font-size="10" text-anchor="start">GPT-5.5</text>
+  <text x="755.7" y="195.5" class="mono red" font-size="10" text-anchor="start">Gem 3.1 Pro</text>
+  <text x="686.0" y="195.7" class="mono red" font-size="10" text-anchor="start">Qwen 3.7 Max</text>
+  <text x="710.9" y="198.5" class="mono red" font-size="10" text-anchor="start">Gem 3.5 Flash</text>
+  <text x="890.0" y="208.7" class="mono red" font-size="10" text-anchor="start">Opus 4.7</text>
+  <text x="784.1" y="218.3" class="mono red" font-size="10" text-anchor="start">GPT-5.4</text>
+  <text x="890.0" y="226.3" class="mono red" font-size="10" text-anchor="start">Opus 4.6</text>
+  <text x="685.1" y="217.8" class="mono red" font-size="10" text-anchor="start">Grok 4.20</text>
+  <text x="470.0" y="221.3" class="mono red" font-size="10" text-anchor="start">MiniMax M3</text>
+  <text x="516.7" y="251.5" class="mono cy" font-size="10" text-anchor="start">MiMo V2.5 Pro</text>
+  <text x="814.2" y="234.0" class="mono red" font-size="10" text-anchor="start">Sonnet 4.6</text>
+  <text x="513.5" y="240.3" class="mono red" font-size="10" text-anchor="start">Qwen 3.7+</text>
+  <text x="588.2" y="243.3" class="mono cy" font-size="10" text-anchor="start">Kimi K2.6</text>
+  <text x="532.7" y="264.6" class="mono cy" font-size="10" text-anchor="start">DS V4 Pro</text>
+  <text x="643.9" y="265.9" class="mono red" font-size="10" text-anchor="start">GLM-5.1</text>
+  <text x="480.3" y="267.3" class="mono red" font-size="10" text-anchor="start">Qwen 3.6+</text>
+  <text x="612.7" y="270.5" class="mono red" font-size="10" text-anchor="start">GPT-5.4 mini</text>
+  <text x="510.0" y="275.4" class="mono cy" font-size="10" text-anchor="start">Kimi K2.5</text>
+  <text x="688.7" y="282.9" class="mono red" font-size="10" text-anchor="start">Grok 4</text>
+  <text x="406.6" y="294.3" class="mono red" font-size="10" text-anchor="start">GPT-5.4 nano</text>
+  <text x="446.6" y="300.4" class="mono red" font-size="10" text-anchor="start">GPT-5 mini</text>
+  <text x="395.4" y="304.4" class="mono red" font-size="10" text-anchor="start">Qwen 3.6 Flash</text>
+  <text x="467.6" y="349.9" class="mono red" font-size="10" text-anchor="start">Gem 2.5 Flash</text>
+  <text x="526.9" y="356.0" class="mono cy" font-size="10" text-anchor="start">Qwen3 235B</text>
+  <text x="519.1" y="392.7" class="mono red" font-size="10" text-anchor="start">GPT-4.1 mini</text>
+  <text x="230.7" y="437.6" class="mono cy" font-size="10" text-anchor="start">Phi-4</text>
+  <text x="307.6" y="439.8" class="mono red" font-size="10" text-anchor="start">GPT-4.1 nano</text>
+  <text x="493.8" y="454.2" class="mono cy" font-size="10" text-anchor="start">Qwen2.5</text>
+  <text x="752.8" y="459.4" class="mono cy" font-size="10" text-anchor="start">Mistral L2</text>
+  <text x="50" y="570" class="mono m" font-size="11">Sources: Epoch AI Capabilities Index (epoch.ai/data), OpenRouter API + Intelligence Index (openrouter.ai). June 2026.</text>
+  <text x="50" y="584" class="mono m" font-size="11">Dashed circles: ECI extrapolated from OpenRouter Intelligence Index via linear fit (R&#178; = 0.68, n = 12).</text>
 </svg>
