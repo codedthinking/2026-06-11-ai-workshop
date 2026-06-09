@@ -35,9 +35,9 @@
   <section>
     <h2>Three claims</h2>
     <ol>
-      <li class="fragment"><strong>Intelligence is a commodity</strong> — understand the stack, unbundle it, pick your tools.</li>
-      <li class="fragment"><strong>Agents work only when structure underneath them is good</strong> — your Day-1 practices are the prerequisite.</li>
-      <li class="fragment"><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, structured IRs, and assertions are the cure.</li>
+      <li><strong>Intelligence is a commodity</strong> — understand the stack, unbundle it, pick your tools.</li>
+      <li><strong>Agents work only when structure underneath them is good</strong> — your Day-1 practices are the prerequisite.</li>
+      <li><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, structured IRs, and assertions are the cure.</li>
     </ol>
   </section>
 
@@ -66,10 +66,10 @@
   <section>
     <h2>Context is everything that fits in the window</h2>
     <ul>
-      <li class="fragment">The model sees <strong>only</strong> what is inside the context window</li>
-      <li class="fragment">Everything outside it is <strong>gone</strong> — no persistent memory</li>
-      <li class="fragment">The full transcript is re-sent on <strong>every</strong> API call</li>
-      <li class="fragment">Context filling causes failure — the fix is a fresh session, not more prompting</li>
+      <li>The model sees <strong>only</strong> what is inside the context window</li>
+      <li>Everything outside it is <strong>gone</strong> — no persistent memory</li>
+      <li>The full transcript is re-sent on <strong>every</strong> API call</li>
+      <li>Context filling causes failure — the fix is a fresh session, not more prompting</li>
     </ul>
     <aside class="notes">
       Key point: LLMs are stateless. Each call gets the whole conversation. When the context fills up, quality degrades. Starting fresh is often better than adding more instructions.
@@ -90,9 +90,9 @@
       \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]
     </div>
     <ul>
-      <li class="fragment">Each token attends to all previous tokens</li>
-      <li class="fragment">$d_k$ scales the dot product so softmax doesn't saturate</li>
-      <li class="fragment">Multi-head: multiple attention patterns in parallel</li>
+      <li>Each token attends to all previous tokens</li>
+      <li>$d_k$ scales the dot product so softmax doesn't saturate</li>
+      <li>Multi-head: multiple attention patterns in parallel</li>
     </ul>
   </section>
 
@@ -121,7 +121,7 @@
         </code></pre>
       </div>
     </div>
-    <p class="fragment">The harness runs the tool, appends the result, and calls the model again.</p>
+    <p>The harness runs the tool, appends the result, and calls the model again.</p>
   </section>
 
   <!-- --- The ecosystem and unbundling --- -->
@@ -175,12 +175,12 @@
   <section>
     <h2>The prescription</h2>
     <ul>
-      <li class="fragment"><strong>Pick one harness</strong> you are comfortable in</li>
-      <li class="fragment"><strong>Swap models freely</strong> for each task</li>
-      <li class="fragment"><strong>Write skills as readable markdown</strong></li>
-      <li class="fragment"><strong>Keep very good structure</strong> in your work</li>
+      <li><strong>Pick one harness</strong> you are comfortable in</li>
+      <li><strong>Swap models freely</strong> for each task</li>
+      <li><strong>Write skills as readable markdown</strong></li>
+      <li><strong>Keep very good structure</strong> in your work</li>
     </ul>
-    <p class="fragment" style="margin-top: 1em;"><em>Lock-in is the risk; model loyalty is a mistake.</em></p>
+    <p style="margin-top: 1em;"><em>Lock-in is the risk; model loyalty is a mistake.</em></p>
   </section>
 
   <section>
@@ -222,12 +222,12 @@
   <section>
     <h2>When to hit Escape</h2>
     <ul>
-      <li class="fragment">The agent is going in the wrong direction</li>
-      <li class="fragment">It's making changes you didn't ask for</li>
-      <li class="fragment">Context is getting polluted with errors</li>
-      <li class="fragment"><strong>"Toxic context"</strong> — when a mistake poisons all subsequent reasoning</li>
+      <li>The agent is going in the wrong direction</li>
+      <li>It's making changes you didn't ask for</li>
+      <li>Context is getting polluted with errors</li>
+      <li><strong>"Toxic context"</strong> — when a mistake poisons all subsequent reasoning</li>
     </ul>
-    <p class="fragment" style="margin-top: 1em;">The fix: <strong>start a fresh session</strong>, not more prompting.</p>
+    <p style="margin-top: 1em;">The fix: <strong>start a fresh session</strong>, not more prompting.</p>
   </section>
 
   <section>
@@ -236,9 +236,9 @@
       <p>Never let the same session verify its own work.</p>
     </blockquote>
     <ul>
-      <li class="fragment">Agent writes code → you review the diff</li>
-      <li class="fragment">Agent runs tests → a <strong>different</strong> session or you verify the output</li>
-      <li class="fragment">Same context = same blind spots</li>
+      <li>Agent writes code → you review the diff</li>
+      <li>Agent runs tests → a <strong>different</strong> session or you verify the output</li>
+      <li>Same context = same blind spots</li>
     </ul>
   </section>
 
@@ -250,7 +250,7 @@
     <div class="callout warning">
       <strong>Deny:</strong> destructive shell commands, writes outside the project
     </div>
-    <p class="fragment">The agent can never delete or overwrite your data if permissions are set correctly.</p>
+    <p>The agent can never delete or overwrite your data if permissions are set correctly.</p>
   </section>
 
   <section>
@@ -264,7 +264,7 @@
         <tr><td><code>AGENTS.md</code></td><td>Agent-specific config</td><td>Permissions, model preferences, workflow</td></tr>
       </tbody>
     </table>
-    <p class="fragment"><strong>What does NOT belong:</strong> everything else. Irrelevant instructions actively hurt.</p>
+    <p><strong>What does NOT belong:</strong> everything else. Irrelevant instructions actively hurt.</p>
   </section>
 
   <!-- --- Skills and project configuration --- -->
@@ -276,12 +276,12 @@
   <section>
     <h2>Project config: CLAUDE.md</h2>
     <ul>
-      <li class="fragment">Your conventions, data assumptions, preferred tools</li>
-      <li class="fragment">Start with <strong>3–5 rules</strong></li>
-      <li class="fragment">Add one each time you correct the agent twice</li>
-      <li class="fragment">This is the minimum viable project config</li>
+      <li>Your conventions, data assumptions, preferred tools</li>
+      <li>Start with <strong>3–5 rules</strong></li>
+      <li>Add one each time you correct the agent twice</li>
+      <li>This is the minimum viable project config</li>
     </ul>
-    <div class="callout tip fragment">
+    <div class="callout tip">
       <strong>Tip:</strong> If you can't write it in one sentence, you don't understand it yet.
     </div>
   </section>
@@ -289,9 +289,9 @@
   <section>
     <h2>Skills: reusable task templates</h2>
     <ul>
-      <li class="fragment">A skill = a markdown file with a fixed output location, commit convention, and stopping rules</li>
-      <li class="fragment">Domain-specific, not generic</li>
-      <li class="fragment">The agent reads the skill and follows it like a recipe</li>
+      <li>A skill = a markdown file with a fixed output location, commit convention, and stopping rules</li>
+      <li>Domain-specific, not generic</li>
+      <li>The agent reads the skill and follows it like a recipe</li>
     </ul>
   </section>
 
@@ -309,7 +309,7 @@
         <tr><td><code>EDITING</code></td><td>Proofread, consistency check, style</td></tr>
       </tbody>
     </table>
-    <p class="fragment">Each skill has its own queue. Separation of concerns.</p>
+    <p>Each skill has its own queue. Separation of concerns.</p>
   </section>
 
   <section>
@@ -345,17 +345,17 @@
   <section>
     <h2>Your turn (20 min)</h2>
     <ol>
-      <li class="fragment"><strong>10 min:</strong> Draft a CLAUDE.md for your project
+      <li><strong>10 min:</strong> Draft a CLAUDE.md for your project
         <ul>
           <li>Tools the agent does not know</li>
           <li>Naming conventions, data paths</li>
           <li>Verification rules</li>
         </ul>
       </li>
-      <li class="fragment"><strong>5 min:</strong> Draft a minimal skill for one recurring task</li>
-      <li class="fragment"><strong>5 min:</strong> Share one thing that was hard to write down</li>
+      <li><strong>5 min:</strong> Draft a minimal skill for one recurring task</li>
+      <li><strong>5 min:</strong> Share one thing that was hard to write down</li>
     </ol>
-    <p class="fragment" style="margin-top: 1em;"><em>The act of writing conventions in plain text for a model forces a precision that is valuable even if you never use the skill.</em></p>
+    <p style="margin-top: 1em;"><em>The act of writing conventions in plain text for a model forces a precision that is valuable even if you never use the skill.</em></p>
   </section>
 
   <!-- ================================================================== -->
@@ -375,14 +375,14 @@
   <section>
     <h2>Day-1 practices are agent-compatible practices</h2>
     <ul>
-      <li class="fragment">No hard-coded paths</li>
-      <li class="fragment">No overwriting raw data</li>
-      <li class="fragment"><code>main.do</code> with step flags</li>
-      <li class="fragment">README from day 1</li>
-      <li class="fragment">Secrets in environment variables</li>
-      <li class="fragment">Checksum-guarded downloads</li>
+      <li>No hard-coded paths</li>
+      <li>No overwriting raw data</li>
+      <li><code>main.do</code> with step flags</li>
+      <li>README from day 1</li>
+      <li>Secrets in environment variables</li>
+      <li>Checksum-guarded downloads</li>
     </ul>
-    <p class="fragment" style="margin-top: 1em;">These are not just journal requirements — they are what makes your project <strong>legible to an agent</strong>.</p>
+    <p style="margin-top: 1em;">These are not just journal requirements — they are what makes your project <strong>legible to an agent</strong>.</p>
   </section>
 
   <section>
@@ -402,9 +402,9 @@
   <section>
     <h2>Models are non-deterministic</h2>
     <ul>
-      <li class="fragment">Temperature, sampling, and system state mean the same prompt → different code</li>
-      <li class="fragment">The model you used is <strong>deprecated within a year</strong></li>
-      <li class="fragment">Without pinning, your paper is not reproducible — even by you</li>
+      <li>Temperature, sampling, and system state mean the same prompt → different code</li>
+      <li>The model you used is <strong>deprecated within a year</strong></li>
+      <li>Without pinning, your paper is not reproducible — even by you</li>
     </ul>
   </section>
 
@@ -413,7 +413,7 @@
     <div class="callout info">
       <strong>Pin the exact model version. Commit the prompt and the transcript alongside the diff.</strong>
     </div>
-    <p class="fragment" style="margin-top: 1em;">The prompt is part of your methods section.</p>
+    <p style="margin-top: 1em;">The prompt is part of your methods section.</p>
   </section>
 
   <!-- --- dodo demo --- -->
@@ -425,12 +425,12 @@
   <section>
     <h2>What is dodo?</h2>
     <ul>
-      <li class="fragment">A DuckDB extension that runs your <code>.do</code> files unchanged</li>
-      <li class="fragment"><code>show sql</code> — see what the agent actually produced, not what you asked for</li>
-      <li class="fragment"><code>assert</code> — catch silent failures</li>
-      <li class="fragment"><code>dodoc</code> — compile the pipeline to SQL for CI</li>
+      <li>A DuckDB extension that runs your <code>.do</code> files unchanged</li>
+      <li><code>show sql</code> — see what the agent actually produced, not what you asked for</li>
+      <li><code>assert</code> — catch silent failures</li>
+      <li><code>dodoc</code> — compile the pipeline to SQL for CI</li>
     </ul>
-    <p class="fragment" style="margin-top: 1em;">The <code>.do</code> syntax is a <strong>structured intermediate representation</strong> — the agent generates it, you audit the SQL it produces, the Makefile runs it.</p>
+    <p style="margin-top: 1em;">The <code>.do</code> syntax is a <strong>structured intermediate representation</strong> — the agent generates it, you audit the SQL it produces, the Makefile runs it.</p>
   </section>
 
   <section>
@@ -444,7 +444,7 @@
     <div class="callout warning">
       <strong>Agent used an ID that is not stable over time</strong>
     </div>
-    <p class="fragment">"It ran without errors" is <strong>not</strong> a test.</p>
+    <p>"It ran without errors" is <strong>not</strong> a test.</p>
   </section>
 
   <!-- --- Exercise: Find the silent failure --- -->
@@ -457,10 +457,10 @@
     <h2>Your turn (75 min)</h2>
     <p>Bring a <code>.do</code> file or use the provided Hungarian company registry dataset.</p>
     <ol>
-      <li class="fragment">Run it through dodo</li>
-      <li class="fragment">Use <code>show sql</code> to find one thing the agent generated that you would not have caught by reading the <code>.do</code> file</li>
-      <li class="fragment">Write two <code>assert</code> statements that would catch it next time</li>
-      <li class="fragment">Add those asserts to a <code>make test</code> target</li>
+      <li>Run it through dodo</li>
+      <li>Use <code>show sql</code> to find one thing the agent generated that you would not have caught by reading the <code>.do</code> file</li>
+      <li>Write two <code>assert</code> statements that would catch it next time</li>
+      <li>Add those asserts to a <code>make test</code> target</li>
     </ol>
     <aside class="notes">
       Debrief: each participant names their silent failure. Collect these — they form the workshop's shared artifact.
@@ -478,23 +478,23 @@
   <section>
     <h2>What do you actually do on Monday?</h2>
     <ol>
-      <li class="fragment"><strong>Which harness</strong> to start with?</li>
-      <li class="fragment"><strong>Which model</strong> for which task?</li>
-      <li class="fragment"><strong>What goes in your CLAUDE.md</strong> — the minimum viable project config?</li>
-      <li class="fragment"><strong>What structural change</strong> does your project need before an agent can work in it?</li>
-      <li class="fragment"><strong>Which failure modes</strong> to watch for?</li>
+      <li><strong>Which harness</strong> to start with?</li>
+      <li><strong>Which model</strong> for which task?</li>
+      <li><strong>What goes in your CLAUDE.md</strong> — the minimum viable project config?</li>
+      <li><strong>What structural change</strong> does your project need before an agent can work in it?</li>
+      <li><strong>Which failure modes</strong> to watch for?</li>
     </ol>
   </section>
 
   <section>
     <h2>Failure modes to watch for</h2>
     <ul>
-      <li class="fragment">Hallucination — agent invents facts, citations, APIs</li>
-      <li class="fragment">Silent data decisions — drops rows, changes types, rounds values</li>
-      <li class="fragment">Scope creep — agent rewrites code you didn't ask to change</li>
-      <li class="fragment">Context degradation — quality drops as conversation grows</li>
-      <li class="fragment">Confident domain errors — plausible-sounding but wrong economics</li>
-      <li class="fragment">Restricted data leaving your machine — DUA / IRB violations</li>
+      <li>Hallucination — agent invents facts, citations, APIs</li>
+      <li>Silent data decisions — drops rows, changes types, rounds values</li>
+      <li>Scope creep — agent rewrites code you didn't ask to change</li>
+      <li>Context degradation — quality drops as conversation grows</li>
+      <li>Confident domain errors — plausible-sounding but wrong economics</li>
+      <li>Restricted data leaving your machine — DUA / IRB violations</li>
     </ul>
   </section>
 
