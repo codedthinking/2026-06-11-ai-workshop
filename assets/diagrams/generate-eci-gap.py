@@ -68,7 +68,7 @@ for dt, eci, is_open, name in rows:
 
 # ── SVG geometry ────────────────────────────────────────────────────
 W, H = 1040, 600
-ml, mr, mt, mb = 110, 50, 120, 100
+ml, mr, mt, mb = 110, 50, 100, 70
 pw = W - ml - mr
 ph = H - mt - mb
 
@@ -166,31 +166,31 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-fam
   <rect width="{W}" height="{H}" fill="#1D1D40"/>
 
   <!-- header -->
-  <text x="50" y="42" class="mono cy" font-size="14" letter-spacing="3">~ THE OPEN&#8211;CLOSED GAP</text>
-  <text x="50" y="78" class="t" font-size="30">Open weights trail the frontier by months, not years</text>
-  <text x="50" y="104" class="m" font-size="16">Epoch Capabilities Index (ECI): running maximum. The gap is ~8 points &#8776; 4 months.</text>
+  <text x="50" y="36" class="mono cy" font-size="14" letter-spacing="3">~ THE OPEN&#8211;CLOSED GAP</text>
+  <text x="50" y="66" class="t" font-size="30">Open weights trail the frontier by months, not years</text>
+  <text x="50" y="88" class="m" font-size="16">Epoch Capabilities Index (ECI): running maximum. The gap is ~8 points &#8776; 4 months.</text>
 
   <!-- legend -->
   <g font-size="14">
-    <line x1="580" y1="42" x2="612" y2="42" stroke="#E61E25" stroke-width="3"/><text x="620" y="46" class="l">closed frontier</text>
-    <line x1="760" y1="42" x2="792" y2="42" stroke="#35E0D8" stroke-width="3"/><text x="800" y="46" class="l">best open-weight</text>
+    <line x1="580" y1="36" x2="612" y2="36" stroke="#E61E25" stroke-width="3"/><text x="620" y="40" class="l">closed frontier</text>
+    <line x1="760" y1="36" x2="792" y2="36" stroke="#35E0D8" stroke-width="3"/><text x="800" y="40" class="l">best open-weight</text>
   </g>
 
   <!-- axes -->
   <line x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}" stroke="#9795B5" stroke-width="1.2"/>
   <line x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}" stroke="#9795B5" stroke-width="1.2"/>
-  <text x="{ml - 10}" y="{mt - 8}" class="mono m" font-size="13" text-anchor="end">ECI &#8593;</text>
+  <text x="{ml - 10}" y="{mt - 8}" class="mono m" font-size="15" text-anchor="end">ECI &#8593;</text>
 '''
 
 for y in years:
     x = dx(datetime(y, 1, 1))
     svg += f'  <line x1="{x:.1f}" y1="{mt}" x2="{x:.1f}" y2="{mt + ph}" stroke="rgba(151,149,181,0.15)" stroke-width="1"/>\n'
-    svg += f'  <text x="{x:.1f}" y="{mt + ph + 24}" class="mono m" font-size="14" text-anchor="middle">{y}</text>\n'
+    svg += f'  <text x="{x:.1f}" y="{mt + ph + 24}" class="mono m" font-size="15" text-anchor="middle">{y}</text>\n'
 
 for e in eci_ticks:
     y = ey(e)
     svg += f'  <line x1="{ml}" y1="{y:.1f}" x2="{ml + pw}" y2="{y:.1f}" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>\n'
-    svg += f'  <text x="{ml - 10}" y="{y + 5:.1f}" class="mono m" font-size="12" text-anchor="end">{e}</text>\n'
+    svg += f'  <text x="{ml - 10}" y="{y + 5:.1f}" class="mono m" font-size="14" text-anchor="end">{e}</text>\n'
 
 svg += f'  <polygon fill="#9795B5" fill-opacity="0.15" points="{gap_top} {gap_bot}"/>\n'
 svg += f'  <polyline fill="none" stroke="#E61E25" stroke-width="2.5" points="{closed_step}"/>\n'
@@ -202,7 +202,7 @@ for dt, eci, name in closed_pts:
     if name in closed_labels:
         ox, oy = closed_labels[name]
         short = name.split(" (")[0]
-        svg += f'  <text x="{x + ox:.1f}" y="{y + oy:.1f}" class="mono red" font-size="12" text-anchor="start">{short}</text>\n'
+        svg += f'  <text x="{x + ox:.1f}" y="{y + oy:.1f}" class="mono red" font-size="13" text-anchor="start">{short}</text>\n'
 
 for dt, eci, name in open_pts:
     x, y = dx(dt), ey(eci)
@@ -220,7 +220,7 @@ ay1, ay2 = ey(c_val), ey(o_val)
 svg += f'  <line x1="{ax:.1f}" y1="{ay1:.1f}" x2="{ax:.1f}" y2="{ay2:.1f}" stroke="#E0A85A" stroke-width="2" stroke-dasharray="5 3"/>\n'
 svg += f'  <text x="{ax + 10:.1f}" y="{(ay1+ay2)/2 + 5:.1f}" class="mono am" font-size="13">~{c_val - o_val:.0f} pts &#8776; 4 mo</text>\n'
 
-svg += f'  <text x="50" y="{H - 22}" class="mono m" font-size="12">Source: Epoch AI Capabilities Index (epoch.ai/data). CC BY. Downloaded June 2026.</text>\n'
+svg += f'  <text x="50" y="{H - 14}" class="mono m" font-size="12">Source: Epoch AI Capabilities Index (epoch.ai/data). CC BY. Downloaded June 2026.</text>\n'
 svg += "</svg>\n"
 
 out_path = os.path.join(os.path.dirname(__file__), "open-closed-eci-gap.svg")

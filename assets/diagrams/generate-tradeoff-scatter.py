@@ -244,7 +244,7 @@ for p in points:
 
 # ── SVG generation ──────────────────────────────────────────────────
 W, H = 1040, 600
-ml, mr, mt, mb = 110, 50, 120, 100
+ml, mr, mt, mb = 110, 50, 100, 70
 pw = W - ml - mr
 ph = H - mt - mb
 
@@ -321,22 +321,22 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-fam
   <rect width="{W}" height="{H}" fill="#1D1D40"/>
 
   <!-- header -->
-  <text x="50" y="42" class="mono cy" font-size="14" letter-spacing="3">~ COST vs CAPABILITY</text>
-  <text x="50" y="78" class="t" font-size="30">Smarter models cost more &#8212; but open weights close the gap</text>
-  <text x="50" y="104" class="m" font-size="15">Each circle is one model. Area &#8733; requests on OpenRouter (hover for details). X axis is log scale.</text>
+  <text x="50" y="36" class="mono cy" font-size="14" letter-spacing="3">~ COST vs CAPABILITY</text>
+  <text x="50" y="66" class="t" font-size="30">Smarter models cost more &#8212; but open weights close the gap</text>
+  <text x="50" y="88" class="m" font-size="15">Each circle is one model. Area &#8733; requests on OpenRouter (hover for details). X axis is log scale.</text>
 
   <!-- legend -->
   <g font-size="14">
-    <circle cx="600" cy="42" r="6" fill="#E61E25" fill-opacity="0.7"/><text x="612" y="46" class="l">closed</text>
-    <circle cx="690" cy="42" r="6" fill="#35E0D8" fill-opacity="0.7"/><text x="702" y="46" class="l">open weights</text>
-    <circle cx="815" cy="42" r="6" fill="#9795B5" fill-opacity="0.4" stroke="#9795B5" stroke-width="1" stroke-dasharray="2 2"/><text x="827" y="46" class="l">dashed = extrapolated</text>
+    <circle cx="600" cy="36" r="6" fill="#E61E25" fill-opacity="0.7"/><text x="612" y="40" class="l">closed</text>
+    <circle cx="690" cy="36" r="6" fill="#35E0D8" fill-opacity="0.7"/><text x="702" y="40" class="l">open weights</text>
+    <circle cx="815" cy="36" r="6" fill="#9795B5" fill-opacity="0.4" stroke="#9795B5" stroke-width="1" stroke-dasharray="2 2"/><text x="827" y="40" class="l">dashed = extrapolated</text>
   </g>
 
   <!-- axes -->
   <line x1="{ml}" y1="{mt}" x2="{ml}" y2="{mt + ph}" stroke="#9795B5" stroke-width="1.2"/>
   <line x1="{ml}" y1="{mt + ph}" x2="{ml + pw}" y2="{mt + ph}" stroke="#9795B5" stroke-width="1.2"/>
-  <text x="{ml - 10}" y="{mt - 8}" class="mono m" font-size="13" text-anchor="end">ECI &#8593;</text>
-  <text x="{ml + pw + 5}" y="{mt + ph + 20}" class="mono m" font-size="13">&#36;/Mtok &#8594;</text>
+  <text x="{ml - 10}" y="{mt - 8}" class="mono m" font-size="15" text-anchor="end">ECI &#8593;</text>
+  <text x="{ml + pw + 5}" y="{mt + ph + 22}" class="mono m" font-size="15">&#36;/Mtok &#8594;</text>
 '''
 
 # X gridlines (log scale)
@@ -346,13 +346,13 @@ for t in x_ticks:
     x = cx(t)
     svg += f'  <line x1="{x:.1f}" y1="{mt}" x2="{x:.1f}" y2="{mt + ph}" stroke="rgba(151,149,181,0.12)" stroke-width="1"/>\n'
     label = f"&#36;{t:g}"
-    svg += f'  <text x="{x:.1f}" y="{mt + ph + 20}" class="mono m" font-size="12" text-anchor="middle">{label}</text>\n'
+    svg += f'  <text x="{x:.1f}" y="{mt + ph + 22}" class="mono m" font-size="14" text-anchor="middle">{label}</text>\n'
 
 # Y gridlines
 for e in range(130, 165, 5):
     y = cy(e)
     svg += f'  <line x1="{ml}" y1="{y:.1f}" x2="{ml + pw}" y2="{y:.1f}" stroke="rgba(151,149,181,0.10)" stroke-width="1"/>\n'
-    svg += f'  <text x="{ml - 10}" y="{y + 5:.1f}" class="mono m" font-size="12" text-anchor="end">{e}</text>\n'
+    svg += f'  <text x="{ml - 10}" y="{y + 5:.1f}" class="mono m" font-size="14" text-anchor="end">{e}</text>\n'
 
 # Draw circles (larger ones first so labels aren't hidden)
 points_sorted = sorted(points, key=lambda p: -radius(p["usage"]))
@@ -381,11 +381,11 @@ for p in points:
         ox, oy, anchor = r + 4, -4, "start"
         if p["cost"] > 8:
             ox, anchor = -(r + 4), "end"
-    svg += f'  <text x="{x + ox:.1f}" y="{y + oy:.1f}" class="mono {color_class}" font-size="10" text-anchor="{anchor}">{sn}</text>\n'
+    svg += f'  <text x="{x + ox:.1f}" y="{y + oy:.1f}" class="mono {color_class}" font-size="12" text-anchor="{anchor}">{sn}</text>\n'
 
 # Source
-svg += f'  <text x="50" y="{H - 30}" class="mono m" font-size="11">Sources: Epoch AI Capabilities Index (epoch.ai/data), OpenRouter API + Intelligence Index (openrouter.ai). June 2026.</text>\n'
-svg += f'  <text x="50" y="{H - 16}" class="mono m" font-size="11">Dashed circles: ECI extrapolated from OpenRouter Intelligence Index via linear fit (R&#178; = 0.68, n = 12).</text>\n'
+svg += f'  <text x="50" y="{H - 24}" class="mono m" font-size="12">Sources: Epoch AI Capabilities Index (epoch.ai/data), OpenRouter API + Intelligence Index (openrouter.ai). June 2026.</text>\n'
+svg += f'  <text x="50" y="{H - 8}" class="mono m" font-size="12">Dashed circles: ECI extrapolated from OpenRouter Intelligence Index via linear fit (R&#178; = 0.68, n = 12).</text>\n'
 
 svg += "</svg>\n"
 
