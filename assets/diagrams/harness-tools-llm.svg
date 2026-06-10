@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 680" font-family="'Brockmann','Helvetica Neue',Arial,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="'Brockmann','Helvetica Neue',Arial,sans-serif">
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;display=swap');
@@ -9,91 +9,61 @@
       .red{ fill:#E61E25; }
       .cy { fill:#35E0D8; }
     </style>
-    <marker id="d" markerWidth="11" markerHeight="11" refX="6.5" refY="3" orient="auto-start-reverse">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#9795B5"/>
+    <marker id="a" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#9795B5"/>
     </marker>
-    <marker id="a" markerWidth="11" markerHeight="11" refX="7" refY="3" orient="auto">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#9795B5"/>
-    </marker>
-    <marker id="ar" markerWidth="11" markerHeight="11" refX="7" refY="3" orient="auto">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#E61E25"/>
-    </marker>
-    <marker id="ac" markerWidth="11" markerHeight="11" refX="7" refY="3" orient="auto">
-      <path d="M0,0 L7,3 L0,6 Z" fill="#35E0D8"/>
+    <marker id="ac" markerWidth="12" markerHeight="12" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#35E0D8"/>
     </marker>
   </defs>
 
-  <rect width="1280" height="680" fill="#1D1D40"/>
+  <rect width="1000" height="420" fill="#1D1D40"/>
 
   <!-- header -->
-  <text x="50" y="52" class="mono cy" font-size="13" letter-spacing="3">~ HOW THE PIECES FIT</text>
-  <text x="50" y="92" class="t" font-size="32">The harness runs locally; the model is remote</text>
-  <text x="50" y="120" class="m" font-size="15">The harness builds prompts and runs tools on your machine. It calls the LLM over the network and loops.</text>
+  <text x="500" y="42" class="t" font-size="32" text-anchor="middle">The harness runs locally; the model is remote</text>
 
-  <!-- ===== LOCAL region ===== -->
-  <rect x="40" y="150" width="800" height="500" rx="14" fill="rgba(151,149,181,0.05)" stroke="rgba(151,149,181,0.3)"/>
-  <text x="62" y="180" class="mono l" font-size="13" letter-spacing="1.5">LOCAL &#183; your machine</text>
+  <!-- LOCAL region -->
+  <rect x="30" y="70" width="600" height="310" rx="14" fill="rgba(151,149,181,0.05)" stroke="rgba(151,149,181,0.3)"/>
+  <text x="52" y="96" class="mono l" font-size="14" letter-spacing="1.5">YOUR MACHINE</text>
 
-  <!-- You -->
-  <rect x="62" y="370" width="120" height="84" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
-  <text x="122" y="408" class="t" font-size="18" text-anchor="middle">You</text>
-  <text x="122" y="430" class="m" font-size="11.5" text-anchor="middle">instructions</text>
-  <line x1="182" y1="412" x2="326" y2="412" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- You box -->
+  <rect x="52" y="180" width="120" height="80" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/>
+  <text x="112" y="228" class="t" font-size="20" text-anchor="middle">You</text>
 
-  <!-- Harness (center) -->
-  <rect x="328" y="350" width="300" height="128" rx="12" fill="#24244D" stroke="rgba(53,224,216,0.45)"/>
-  <text x="478" y="392" class="t" font-size="22" text-anchor="middle">Harness</text>
-  <text x="478" y="416" class="cy mono" font-size="12.5" text-anchor="middle">Claude Code &#183; Cursor &#183; OpenCode</text>
-  <text x="478" y="440" class="m" font-size="12" text-anchor="middle">builds the prompt &#183; applies edits</text>
-  <text x="478" y="458" class="m" font-size="12" text-anchor="middle">asks permission &#183; runs the loop</text>
+  <!-- arrow You -> Harness -->
+  <line x1="172" y1="220" x2="228" y2="220" stroke="#9795B5" stroke-width="2" marker-end="url(#a)"/>
 
-  <!-- Tools (local) -->
-  <!-- Files above -->
-  <rect x="350" y="210" width="256" height="62" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
-  <text x="478" y="238" class="t" font-size="15" text-anchor="middle">Files / repo</text>
-  <text x="478" y="258" class="m mono" font-size="11" text-anchor="middle">read &amp; write &#183; local</text>
-  <line x1="478" y1="274" x2="478" y2="348" stroke="#9795B5" stroke-width="1.5" marker-start="url(#d)" marker-end="url(#d)"/>
+  <!-- Harness box -->
+  <rect x="232" y="160" width="220" height="120" rx="12" fill="#24244D" stroke="rgba(53,224,216,0.45)"/>
+  <text x="342" y="210" class="t" font-size="22" text-anchor="middle">Harness</text>
+  <text x="342" y="240" class="mono cy" font-size="13" text-anchor="middle">builds prompt &#183; runs tools</text>
+  <text x="342" y="260" class="mono cy" font-size="13" text-anchor="middle">asks permission &#183; loops</text>
 
-  <!-- MCP below -->
-  <rect x="350" y="556" width="256" height="62" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
-  <text x="478" y="584" class="t" font-size="15" text-anchor="middle">MCP servers</text>
-  <text x="478" y="604" class="m mono" font-size="11" text-anchor="middle">extra tools &#183; local or LAN</text>
-  <line x1="478" y1="480" x2="478" y2="554" stroke="#9795B5" stroke-width="1.5" marker-start="url(#d)" marker-end="url(#d)"/>
+  <!-- Tools box -->
+  <rect x="260" y="310" width="164" height="54" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.2)"/>
+  <text x="342" y="344" class="t" font-size="17" text-anchor="middle">Tools</text>
+  <text x="342" y="282" class="m" font-size="13" text-anchor="middle">&#8595;</text>
+  <text x="440" y="344" class="mono m" font-size="13">files, shell, web</text>
 
-  <!-- Shell lower-left -->
-  <rect x="80" y="540" width="200" height="62" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
-  <text x="180" y="568" class="t" font-size="15" text-anchor="middle">Shell</text>
-  <text x="180" y="588" class="m mono" font-size="11" text-anchor="middle">run commands &#183; local</text>
-  <line x1="350" y1="466" x2="232" y2="538" stroke="#9795B5" stroke-width="1.5" marker-start="url(#d)" marker-end="url(#d)"/>
+  <!-- network boundary -->
+  <line x1="648" y1="70" x2="648" y2="380" stroke="rgba(230,30,37,0.55)" stroke-width="2" stroke-dasharray="7 6"/>
 
-  <!-- Web lower-right -->
-  <rect x="616" y="540" width="200" height="62" rx="10" fill="#2C2C5A" stroke="rgba(151,149,181,0.18)"/>
-  <text x="716" y="568" class="t" font-size="15" text-anchor="middle">Web fetch</text>
-  <text x="716" y="588" class="m mono" font-size="11" text-anchor="middle">reaches out &#183; local proc.</text>
-  <line x1="606" y1="466" x2="724" y2="538" stroke="#9795B5" stroke-width="1.5" marker-start="url(#d)" marker-end="url(#d)"/>
+  <!-- REMOTE region -->
+  <rect x="666" y="70" width="310" height="310" rx="14" fill="rgba(230,30,37,0.06)" stroke="rgba(230,30,37,0.35)"/>
+  <text x="688" y="96" class="mono red" font-size="14" letter-spacing="1.5">CLOUD</text>
 
-  <!-- ===== boundary ===== -->
-  <line x1="858" y1="150" x2="858" y2="650" stroke="rgba(230,30,37,0.55)" stroke-width="1.5" stroke-dasharray="7 6"/>
-  <text x="858" y="640" class="mono red" font-size="11.5" text-anchor="middle" transform="rotate(-90 858 640)">network boundary</text>
+  <!-- LLM box -->
+  <rect x="700" y="160" width="240" height="120" rx="12" fill="#24244D" stroke="rgba(230,30,37,0.5)"/>
+  <text x="820" y="210" class="t" font-size="24" text-anchor="middle">LLM</text>
+  <text x="820" y="240" class="m" font-size="14" text-anchor="middle">stateless &#183; next-token</text>
+  <text x="820" y="260" class="mono red" font-size="13" text-anchor="middle">Claude &#183; GPT &#183; Gemini</text>
 
-  <!-- ===== REMOTE region ===== -->
-  <rect x="878" y="150" width="360" height="500" rx="14" fill="rgba(230,30,37,0.06)" stroke="rgba(230,30,37,0.35)"/>
-  <text x="900" y="180" class="mono red" font-size="13" letter-spacing="1.5">REMOTE &#183; model provider (cloud)</text>
+  <!-- arrows Harness <-> LLM -->
+  <line x1="452" y1="195" x2="696" y2="195" stroke="#9795B5" stroke-width="2" marker-end="url(#a)"/>
+  <text x="574" y="188" class="mono m" font-size="13" text-anchor="middle">prompt</text>
+  <line x1="696" y1="248" x2="454" y2="248" stroke="#35E0D8" stroke-width="2" marker-end="url(#ac)"/>
+  <text x="574" y="268" class="mono cy" font-size="13" text-anchor="middle">text + tool calls</text>
 
-  <!-- LLM -->
-  <rect x="918" y="350" width="280" height="128" rx="12" fill="#24244D" stroke="rgba(230,30,37,0.5)"/>
-  <text x="1058" y="392" class="t" font-size="22" text-anchor="middle">LLM (API)</text>
-  <text x="1058" y="416" class="m" font-size="12.5" text-anchor="middle">stateless next-token prediction</text>
-  <text x="1058" y="440" class="red mono" font-size="12" text-anchor="middle">GPT &#183; Claude &#183; Gemini</text>
-  <text x="1058" y="458" class="red mono" font-size="12" text-anchor="middle">Qwen &#183; DeepSeek</text>
-
-  <!-- cross-boundary arrows -->
-  <line x1="628" y1="368" x2="916" y2="368" stroke="#9795B5" stroke-width="1.5" marker-end="url(#a)"/>
-  <text x="772" y="356" class="mono m" font-size="11.5" text-anchor="middle">prompt &#8594; context + tool definitions</text>
-  <line x1="916" y1="462" x2="630" y2="462" stroke="#35E0D8" stroke-width="1.5" marker-end="url(#ac)"/>
-  <text x="772" y="480" class="mono cy" font-size="11.5" text-anchor="middle">response &#8592; text + tool calls</text>
-
-  <!-- loop note -->
-  <text x="478" y="320" class="mono m" font-size="12" text-anchor="middle">the loop: tool calls run locally &#8594; results appended to context &#8594; model called again</text>
-  <text x="1230" y="672" class="mono m" font-size="10" text-anchor="end" opacity="0.7">the9x.ac &#183; Agentic AI for Researchers</text>
+  <!-- footer -->
+  <text x="500" y="406" class="mono m" font-size="14" text-anchor="middle">The loop: LLM asks for a tool &#8594; harness runs it locally &#8594; result sent back &#8594; LLM called again.</text>
 </svg>
