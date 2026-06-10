@@ -35,9 +35,9 @@
   <section>
     <h2>Three claims</h2>
     <ol>
-      <li><strong>Intelligence is a commodity</strong> — understand the stack, unbundle it, pick your tools.</li>
-      <li><strong>Agents work only when structure underneath them is good</strong> — your Day-1 practices are the prerequisite.</li>
-      <li><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, and careful review are the cure.</li>
+      <li><strong>Intelligence is becoming a commodity</strong> — understand the stack, then pick tools instead of brands.</li>
+      <li><strong>Agents work only on top of good structure</strong> — Day-1 practices are the prerequisite.</li>
+      <li><strong>Agents create a new reproducibility risk</strong> — pin models, save prompts, and review carefully.</li>
     </ol>
   </section>
 
@@ -64,42 +64,42 @@
   </section>
 
   <section>
-    <h2>Tokenization: how text becomes numbers</h2>
+    <h2>Text enters the model as tokens</h2>
     <ul>
-      <li>The model never sees raw text — it sees <strong>tokens</strong></li>
-      <li>A token ≈ ¾ of a word: "economics" → <code>["econ", "omics"]</code></li>
-      <li>A fixed vocabulary of ~100K tokens, learned from data</li>
+      <li>The model never sees raw text — only <strong>tokens</strong></li>
+      <li>A token is roughly three-quarters of a word: "economics" → <code>["econ", "omics"]</code></li>
+      <li>The vocabulary is fixed and learned from data</li>
       <li>Each token is an integer: <code>"econ" → 42317</code>, <code>"omics" → 7891</code></li>
     </ul>
-    <p style="margin-top: 1em;"><em>Everything you send — code, math, prose — is first chopped into these pieces.</em></p>
+    <p style="margin-top: 1em;"><em>Code, math, and prose all enter the model in these pieces.</em></p>
     <aside class="notes">
       This is why pricing is per token, not per word. Also why models struggle with character-level tasks like counting letters — they don't see individual characters.
     </aside>
   </section>
 
   <section>
-    <h2>Embeddings: tokens as vectors</h2>
+    <h2>Tokens become vectors</h2>
     <ul>
       <li>Each token is mapped to a vector in $\mathbb{R}^d$ (typically $d = 4096$)</li>
       <li>Similar meanings → nearby vectors (cosine similarity)</li>
       <li>"king" − "man" + "woman" ≈ "queen" — linear algebra on meaning</li>
       <li>The model's "knowledge" lives in these vectors and the matrices that transform them</li>
     </ul>
-    <p style="margin-top: 1em;">A 70 billion parameter model = 70 billion numbers defining these transformations.</p>
+    <p style="margin-top: 1em;">A 70 billion parameter model is just 70 billion numbers defining these transformations.</p>
     <aside class="notes">
       Economists already think in vectors — a commodity bundle, a portfolio, a vector of covariates. An embedding is the same idea: each word is a point in high-dimensional space, and the geometry encodes meaning.
     </aside>
   </section>
 
   <section>
-    <h2>From weights to answers: the LLM lifecycle</h2>
+    <h2>Training is fixed cost; inference is marginal cost</h2>
     <table>
       <thead>
         <tr><th>Stage</th><th>What happens</th><th>Cost structure</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Training</strong></td><td>Learn language from trillions of tokens</td><td>Fixed cost: &#36;10M–&#36;1B+, paid once</td></tr>
-        <tr><td><strong>Fine-tuning</strong></td><td>Adapt to a domain or task with curated data</td><td>Fixed cost: &#36;100–&#36;100K, paid per adaptation</td></tr>
+        <tr><td><strong>Training</strong></td><td>Learn language from trillions of tokens</td><td>Fixed cost: $10M–1B+, paid once</td></tr>
+        <tr><td><strong>Fine-tuning</strong></td><td>Adapt to a domain or task with curated data</td><td>Fixed cost: $100–100K, paid per adaptation</td></tr>
         <tr><td><strong>Quantization</strong></td><td>Round the vectors to use less memory</td><td>Fixed cost: minutes of compute, trades precision for size</td></tr>
         <tr><td><strong>Inference</strong></td><td>Generate tokens from a prompt</td><td>Variable cost: pay per token, every call</td></tr>
       </tbody>
@@ -110,18 +110,18 @@
   </section>
 
   <section>
-    <h2>Training: the sunk cost</h2>
+    <h2>Training is the sunk cost</h2>
     <ul>
       <li>Pre-training on internet-scale text: books, code, papers, web</li>
       <li>Produces general-purpose "foundation" weights</li>
-      <li>GPT-4 class: estimated &#36;100M+; Llama 3: ~&#36;30M in compute</li>
+      <li>GPT-4 class: estimated \$100M+; Llama 3: ~\$30M in compute</li>
       <li>You never pay this — it's amortized across all users</li>
     </ul>
     <p style="margin-top: 1em;"><em>Think of it as R&amp;D capex — you consume the output, not the process.</em></p>
   </section>
 
   <section>
-    <h2>Fine-tuning: domain adaptation</h2>
+    <h2>Most researchers do not need fine-tuning</h2>
     <ul>
       <li><strong>Supervised fine-tuning (SFT):</strong> train on (prompt, ideal response) pairs</li>
       <li><strong>RLHF / DPO:</strong> align with human preferences — "be helpful, don't be harmful"</li>
@@ -133,7 +133,7 @@
   </section>
 
   <section>
-    <h2>Quantization: rounding the vectors</h2>
+    <h2>Quantization makes local models practical</h2>
     <ul>
       <li>Each of those 70 billion numbers is stored as a decimal (32 bits → 8 significant digits)</li>
       <li>Quantization rounds them to fewer digits (4 bits → ~1 significant digit)</li>
@@ -147,10 +147,10 @@
   </section>
 
   <section>
-    <h2>Inference: the variable cost</h2>
+    <h2>Inference is the marginal cost of intelligence</h2>
     <ul>
       <li>Every API call = forward pass through the network = tokens in, tokens out</li>
-      <li>Priced per million tokens: &#36;0.10 (cheap) to &#36;15 (frontier)</li>
+      <li>Priced per million tokens: \$0.10 (cheap) to \$15 (frontier)</li>
       <li>Cost is falling ~10× per year at the same quality level</li>
       <li><strong>Local inference:</strong> variable cost → zero after hardware purchase</li>
     </ul>
@@ -160,7 +160,7 @@
   </section>
 
   <section>
-    <h2>The agent has no memory</h2>
+    <h2>The model has no memory across sessions</h2>
     <figure>
       <img src="assets/memento-tattoos.jpg" alt="Leonard's tattoos in Memento" style="max-height: 400px;">
       <figcaption>Like Leonard in <em>Memento</em>: everything you want it to remember, you have to write down. &mdash; Sony Pictures</figcaption>
@@ -171,7 +171,7 @@
   </section>
 
   <section>
-    <h2>Context is everything that fits in the window</h2>
+    <h2>Context window = working memory</h2>
     <ul>
       <li>The model sees <strong>only</strong> what is inside the context window</li>
       <li>Everything outside it is <strong>gone</strong> — no persistent memory</li>
@@ -192,7 +192,7 @@
   </section>
 
   <section>
-    <h2>Attention: how the model decides what matters</h2>
+    <h2>Attention decides what matters</h2>
     <ul>
       <li>Each token attends to <strong>all previous tokens</strong> — decides which ones are relevant</li>
       <li>Like reading a paper: you don't weigh every sentence equally, you focus on what matters for the current paragraph</li>
@@ -202,7 +202,7 @@
   </section>
 
   <section>
-    <h2>Tool calling is structured output with a feedback loop</h2>
+    <h2>Tool use is just structured output in a loop</h2>
     <div class="columns">
       <div class="col">
         <h3>Without tools</h3>
@@ -244,7 +244,7 @@
   </section>
 
   <section>
-    <h2>Five layers of the stack</h2>
+    <h2>The stack has five separable layers</h2>
     <table>
       <thead>
         <tr><th>Layer</th><th>What it is</th><th>Examples</th></tr>
@@ -280,10 +280,10 @@
         <tr><th>Task</th><th>Needs</th><th>Model tier</th></tr>
       </thead>
       <tbody>
-        <tr><td>Reformat a table</td><td>Speed, low cost</td><td>Small (Haiku, Flash, local 14B)</td></tr>
-        <tr><td>Write a Stata .do file</td><td>Domain knowledge, accuracy</td><td>Mid (Sonnet, GPT-4o)</td></tr>
-        <tr><td>Design a research pipeline</td><td>Reasoning, large context</td><td>Frontier (Opus, o3)</td></tr>
-        <tr><td>Review a 50-page paper</td><td>Long context window</td><td>Frontier with 128K+ context</td></tr>
+        <tr><td>Reformat a table</td><td>Speed, low cost</td><td>Small</td></tr>
+        <tr><td>Write a Stata .do file</td><td>Accuracy, domain knowledge</td><td>Mid</td></tr>
+        <tr><td>Design a research pipeline</td><td>Reasoning, large context</td><td>Frontier</td></tr>
+        <tr><td>Review a 50-page paper</td><td>Long context window</td><td>Frontier, 128K+</td></tr>
       </tbody>
     </table>
     <p style="margin-top: 1em;"><em>Using Opus to reformat a CSV is like hiring a professor to do data entry.</em></p>
@@ -306,7 +306,7 @@
   </section>
 
   <section>
-    <h2>What runs locally on consumer hardware</h2>
+    <h2>Consumer hardware already runs useful local models</h2>
     <table>
       <thead>
         <tr><th>Hardware</th><th>VRAM / RAM</th><th>What fits</th><th>Approximate cost</th></tr>
@@ -317,14 +317,14 @@
         <tr><td>Gaming PC + RTX 4090</td><td>24 GB VRAM</td><td>14B models, 70B quantized (slow)</td><td>~&#36;2,500</td></tr>
       </tbody>
     </table>
-    <p style="margin-top: 0.5em;">Tools: <strong>Ollama</strong> (one-click install), <strong>llama.cpp</strong>, <strong>LM Studio</strong> — all free.</p>
+    <p style="margin-top: 0.5em;">Tools: <strong>Ollama</strong>, <strong>llama.cpp</strong>, <strong>LM Studio</strong> — all free.</p>
     <aside class="notes">
       Key point: a 14B quantized model on a laptop is good enough for coding assistance, writing feedback, and data wrangling. You don't need frontier models for every task. The fixed cost is the hardware you already own; the variable cost is electricity.
     </aside>
   </section>
 
   <section>
-    <h2>Cloud vs local: a make-or-buy decision</h2>
+    <h2>Cloud vs local is a make-or-buy decision</h2>
     <div class="columns">
       <div class="col">
         <h3>Cloud API</h3>
@@ -353,7 +353,7 @@
     <ul>
       <li><strong>Pick one harness</strong> you are comfortable in</li>
       <li><strong>Swap models freely</strong> for each task</li>
-      <li><strong>Keep very good structure</strong> in your work</li>
+      <li><strong>Keep good structure</strong> in your work</li>
       <li><strong>Your own skills matter more than ever</strong></li>
     </ul>
     <p style="margin-top: 1em;"><em>Lock-in is the risk; model loyalty is a mistake.</em></p>
@@ -374,7 +374,7 @@
   </section>
 
   <section>
-    <h2>The two-layer model</h2>
+    <h2>Use natural language in, structured output out</h2>
     <div class="columns">
       <div class="col">
         <h3>Natural language in</h3>
@@ -388,7 +388,7 @@
   </section>
 
   <section>
-    <h2>When to hit Escape</h2>
+    <h2>Hit Escape when the session turns toxic</h2>
     <ul>
       <li>The agent is going in the wrong direction</li>
       <li>It's making changes you didn't ask for</li>
@@ -399,7 +399,7 @@
   </section>
 
   <section>
-    <h2>The independence principle</h2>
+    <h2>Do not let one session verify itself</h2>
     <blockquote>
       <p>Never let the same session verify its own work.</p>
     </blockquote>
@@ -411,7 +411,7 @@
   </section>
 
   <section>
-    <h2>Permission boundaries</h2>
+    <h2>Good permission boundaries make agents safer</h2>
     <div class="callout tip">
       <strong>Approve:</strong> reads and edits inside the project directory
     </div>
@@ -422,7 +422,7 @@
   </section>
 
   <section>
-    <h2>CLAUDE.md: project config for agents</h2>
+    <h2>CLAUDE.md is project config for agents</h2>
     <ul>
       <li><strong>What goes in:</strong> data assumptions, naming rules, niche tools, what the agent should never do</li>
       <li><strong>What does NOT belong:</strong> everything else — irrelevant instructions actively hurt</li>
@@ -440,7 +440,7 @@
   </section>
 
   <section>
-    <h2>Skills: reusable task templates</h2>
+    <h2>Skills are reusable task templates</h2>
     <ul>
       <li>A skill = a markdown file with a fixed output location, commit convention, and stopping rules</li>
       <li>Domain-specific, not generic</li>
@@ -449,7 +449,7 @@
   </section>
 
   <section>
-    <h2>Worked example: paper-writing skill set</h2>
+    <h2>A paper-writing workflow naturally splits into skills</h2>
     <table>
       <thead>
         <tr><th>Skill</th><th>Task queue</th></tr>
@@ -462,11 +462,11 @@
         <tr><td><code>EDITING</code></td><td>Proofread, consistency check, style</td></tr>
       </tbody>
     </table>
-    <p>Each skill has its own queue. Separation of concerns.</p>
+    <p>Each skill has its own queue. Separation of concerns matters here too.</p>
   </section>
 
   <section>
-    <h2>Why not dump everything in one file?</h2>
+    <h2>One giant instruction file makes the agent worse</h2>
     <div class="columns">
       <div class="col">
         <h3>❌ One giant file</h3>
@@ -496,7 +496,7 @@
   </section>
 
   <section>
-    <h2>You rarely need the most capable model</h2>
+    <h2>You rarely need the frontier model</h2>
     <ul>
       <li>The frontier is 100× more expensive than mid-tier — for ~10% better reasoning</li>
       <li>A fast, cheap, mid-capability model lets you <strong>iterate faster</strong></li>
@@ -509,7 +509,7 @@
   </section>
 
   <section>
-    <h2>Monthly pricing is a fad</h2>
+    <h2>Monthly subscriptions are not the long-run equilibrium</h2>
     <ul>
       <li>Intelligence will be priced by the million token — like electricity, like bandwidth</li>
       <li>Subscriptions bundle a model, a harness, and a margin — you pay for all three</li>
@@ -522,8 +522,8 @@
   <section>
     <h2>opencode &gt; Claude Code</h2>
     <ul>
-      <li>Faster, more flexible, you can select <strong>any model</strong> from any provider</li>
-      <li>Open source — you can read the harness, modify it, trust it</li>
+      <li>Faster and more flexible — you can select <strong>any model</strong> from any provider</li>
+      <li>Open source — you can read the harness, modify it, and decide how much to trust it</li>
       <li>The best harness is the one that gets out of your way</li>
     </ul>
     <div class="callout tip">
@@ -535,7 +535,7 @@
   </section>
 
   <section>
-    <h2>MCPs are a waste of time and tokens</h2>
+    <h2>Most MCPs are not worth the cost</h2>
     <ul>
       <li>Every MCP call burns context window on tool descriptions the model already has</li>
       <li>The model can already read files, run shell commands, fetch URLs</li>
@@ -559,7 +559,7 @@
   </section>
 
   <section>
-    <h2>Your skills are the durable advantage</h2>
+    <h2>Your workflow skills are the durable advantage</h2>
     <blockquote>
       <p>The more control you have over your own workflow — your shell, your editor, your data modeling, your version control — the better your experience with AI. Even for &#36;0.</p>
     </blockquote>
@@ -608,7 +608,7 @@
   </section>
 
   <section>
-    <h2>Day-1 practices are agent-compatible practices</h2>
+    <h2>Day-1 practices are what make a project agent-legible</h2>
     <ul>
       <li>No hard-coded paths</li>
       <li>No overwriting raw data</li>
@@ -619,7 +619,7 @@
   </section>
 
   <section>
-    <h2>The old risk vs the new risk</h2>
+    <h2>Agents create a new reproducibility risk</h2>
     <div class="columns">
       <div class="col">
         <h3>Old reproducibility risk</h3>
@@ -633,7 +633,7 @@
   </section>
 
   <section>
-    <h2>Models are non-deterministic</h2>
+    <h2>The same prompt will not reliably reproduce the same code</h2>
     <ul>
       <li>Temperature, sampling, and system state mean the same prompt → different code</li>
       <li>The model you used is <strong>deprecated within a year</strong></li>
@@ -642,7 +642,7 @@
   </section>
 
   <section>
-    <h2>The cure: treat the interaction as data</h2>
+    <h2>Treat the interaction as data</h2>
     <div class="callout info">
       <strong>Pin the exact model version. Commit the prompt and the transcript alongside the diff.</strong>
     </div>
@@ -656,7 +656,7 @@
   </section>
 
   <section>
-    <h2>The setup</h2>
+    <h2>Empty folder to working project</h2>
     <ol>
       <li>Start from an <strong>empty folder</strong></li>
       <li>Use <strong>bead</strong> to download the Anthropic Economic Index data</li>
@@ -697,7 +697,7 @@
   </section>
 
   <section>
-    <h2>What do you actually do on Monday?</h2>
+    <h2>What do you do on Monday?</h2>
     <ol>
       <li><strong>What's the first thing</strong> you'll try with OpenCode on your own project?</li>
       <li><strong>Which model</strong> for which task?</li>
@@ -711,7 +711,7 @@
     <h2>Failure modes to watch for</h2>
     <ul>
       <li>Hallucination — agent invents facts, citations, APIs</li>
-      <li>Silent data decisions — drops rows, changes types, rounds values</li>
+      <li>Silent data decisions — dropped rows, changed types, rounded values</li>
       <li>Scope creep — agent rewrites code you didn't ask to change</li>
       <li>Context degradation — quality drops as conversation grows</li>
       <li>Confident domain errors — plausible-sounding but wrong economics</li>
