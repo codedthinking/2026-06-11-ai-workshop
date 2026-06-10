@@ -37,7 +37,7 @@
     <ol>
       <li><strong>Intelligence is a commodity</strong> — understand the stack, unbundle it, pick your tools.</li>
       <li><strong>Agents work only when structure underneath them is good</strong> — your Day-1 practices are the prerequisite.</li>
-      <li><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, structured IRs, and assertions are the cure.</li>
+      <li><strong>Agents introduce new reproducibility risks</strong> — pinned models, saved prompts, and careful review are the cure.</li>
     </ol>
   </section>
 
@@ -193,13 +193,11 @@
 
   <section>
     <h2>Attention: how the model decides what matters</h2>
-    <div class="math-block">
-      \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\]
-    </div>
     <ul>
-      <li>Each token attends to all previous tokens</li>
-      <li>$d_k$ scales the dot product so softmax doesn't saturate</li>
-      <li>Multi-head: multiple attention patterns in parallel</li>
+      <li>Each token attends to <strong>all previous tokens</strong> — decides which ones are relevant</li>
+      <li>Like reading a paper: you don't weigh every sentence equally, you focus on what matters for the current paragraph</li>
+      <li>Multiple attention heads in parallel — different heads notice different patterns</li>
+      <li>This is why <strong>position in context matters</strong> — instructions at the top get more attention</li>
     </ul>
   </section>
 
@@ -231,10 +229,18 @@
     <p>The harness runs the tool, appends the result, and calls the model again.</p>
   </section>
 
+  <!-- ================================================================== -->
+  <!-- ACT 2: The ecosystem — and working with agents                     -->
+  <!-- ================================================================== -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Act 2</h2>
+    <p class="kicker"><span class="accent">02</span> · The ecosystem — and working with agents</p>
+  </section>
+
   <!-- --- The ecosystem and unbundling --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">The ecosystem — and the unbundling argument</h2>
-    <p class="kicker"><span class="accent">01b</span> · Four separable layers</p>
+    <p class="kicker"><span class="accent">02a</span> · Four separable layers</p>
   </section>
 
   <section>
@@ -245,10 +251,10 @@
       </thead>
       <tbody>
         <tr><td><strong>Model</strong></td><td>The neural network</td><td>GPT, Claude, Gemma, Qwen, DeepSeek</td></tr>
-        <tr><td><strong>Harness</strong></td><td>The program that runs the loop</td><td>Claude.ai, Cursor, Claude Code, Zed</td></tr>
+        <tr><td><strong>Harness</strong></td><td>The program that runs the loop</td><td>OpenCode, Claude Code, Cursor, Zed</td></tr>
         <tr><td><strong>Tool</strong></td><td>Built-in actions the harness provides</td><td>Read, Write, Bash, WebFetch</td></tr>
         <tr><td><strong>MCP</strong></td><td>External tools plugged in at runtime</td><td>Filesystem, web search, database</td></tr>
-        <tr><td><strong>Skill</strong></td><td>Plain-text instructions in your repo</td><td>CLAUDE.md, AGENTS.md, domain skills</td></tr>
+        <tr><td><strong>Skill</strong></td><td>Plain-text instructions in your repo</td><td>CLAUDE.md, domain skills</td></tr>
       </tbody>
     </table>
     <aside class="notes">
@@ -361,18 +367,10 @@
     </figure>
   </section>
 
-  <!-- ================================================================== -->
-  <!-- ACT 2: Working with agents                                          -->
-  <!-- ================================================================== -->
-  <section data-background-color="#24244D">
-    <h2 class="section-title">Act 2</h2>
-    <p class="kicker"><span class="accent">02</span> · Working with agents</p>
-  </section>
-
   <!-- --- The escape–enter loop in practice --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">The escape–enter loop in practice</h2>
-    <p class="kicker"><span class="accent">02a</span> · Live demo</p>
+    <p class="kicker"><span class="accent">02b</span> · Live demo</p>
   </section>
 
   <section>
@@ -424,36 +422,21 @@
   </section>
 
   <section>
-    <h2>CLAUDE.md vs AGENTS.md</h2>
-    <table>
-      <thead>
-        <tr><th>File</th><th>Purpose</th><th>What goes in</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><code>CLAUDE.md</code></td><td>Project conventions</td><td>Data assumptions, naming rules, niche tools</td></tr>
-        <tr><td><code>AGENTS.md</code></td><td>Agent-specific config</td><td>Permissions, model preferences, workflow</td></tr>
-      </tbody>
-    </table>
-    <p><strong>What does NOT belong:</strong> everything else. Irrelevant instructions actively hurt.</p>
+    <h2>CLAUDE.md: project config for agents</h2>
+    <ul>
+      <li><strong>What goes in:</strong> data assumptions, naming rules, niche tools, what the agent should never do</li>
+      <li><strong>What does NOT belong:</strong> everything else — irrelevant instructions actively hurt</li>
+      <li>Start with 3–5 rules. Add one each time you correct the agent twice.</li>
+    </ul>
+    <div class="callout tip">
+      <strong>Tip:</strong> If you can't write it in one sentence, you don't understand it yet.
+    </div>
   </section>
 
   <!-- --- Skills and project configuration --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Skills and project configuration</h2>
-    <p class="kicker"><span class="accent">02b</span> · Two kinds of plain text that make agents smarter</p>
-  </section>
-
-  <section>
-    <h2>Project config: CLAUDE.md</h2>
-    <ul>
-      <li>Your conventions, data assumptions, preferred tools</li>
-      <li>Start with <strong>3–5 rules</strong></li>
-      <li>Add one each time you correct the agent twice</li>
-      <li>This is the minimum viable project config</li>
-    </ul>
-    <div class="callout tip">
-      <strong>Tip:</strong> If you can't write it in one sentence, you don't understand it yet.
-    </div>
+    <p class="kicker"><span class="accent">02c</span> · Two kinds of plain text that make agents smarter</p>
   </section>
 
   <section>
@@ -509,7 +492,7 @@
   <!-- --- Opinionated takes --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Strong opinions, loosely held</h2>
-    <p class="kicker"><span class="accent">02c</span> · How to actually choose your tools</p>
+    <p class="kicker"><span class="accent">02d</span> · How to actually choose your tools</p>
   </section>
 
   <section>
@@ -567,7 +550,7 @@
     <ul>
       <li>There is no special pool of "skills" — a skill is a sentence you write in plain language</li>
       <li>How would you tell a coworker what to do? <strong>Write that.</strong></li>
-      <li>CLAUDE.md / AGENTS.md: keep them very short, only for things truly specific to your project</li>
+      <li>CLAUDE.md: keep it very short, only for things truly specific to your project</li>
       <li>Better: just follow industry standards so even a cheap model understands you</li>
     </ul>
     <div class="callout warning">
@@ -583,31 +566,31 @@
     <ul>
       <li>AI amplifies what you already know how to do</li>
       <li>If you can't express a task clearly to a coworker, you can't express it to a model</li>
-      <li>Knowing your tools (shell, SQL, git, make) means you can verify what the model produces</li>
+      <li>Knowing your tools (shell, Stata, your editor) means you can verify what the model produces</li>
       <li>Best practices are not overhead — they are what makes your project <strong>legible to an agent</strong></li>
     </ul>
   </section>
 
-  <!-- --- Exercise: Write a config and a skill --- -->
+  <!-- --- Exercise: Write a project config --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Exercise</h2>
-    <p class="kicker"><span class="accent">02d</span> · Write a project config and a skill</p>
+    <p class="kicker"><span class="accent">02e</span> · Write a project config</p>
   </section>
 
   <section>
-    <h2>Your turn (20 min)</h2>
+    <h2>Your turn (25 min)</h2>
     <ol>
-      <li><strong>10 min:</strong> Draft a CLAUDE.md for your project
+      <li><strong>15 min:</strong> Draft a CLAUDE.md for the workshop project
         <ul>
-          <li>Tools the agent does not know</li>
-          <li>Naming conventions, data paths</li>
-          <li>Verification rules</li>
+          <li>What tools do we use? (Stata, Python)</li>
+          <li>Where does the data live?</li>
+          <li>What naming conventions apply?</li>
+          <li>What should the agent never do?</li>
         </ul>
       </li>
-      <li><strong>5 min:</strong> Draft a minimal skill for one recurring task</li>
-      <li><strong>5 min:</strong> Share one thing that was hard to write down</li>
+      <li><strong>10 min:</strong> Share one thing that was hard to write down</li>
     </ol>
-    <p style="margin-top: 1em;"><em>The act of writing conventions in plain text for a model forces a precision that is valuable even if you never use the skill.</em></p>
+    <p style="margin-top: 1em;"><em>The act of writing conventions in plain text for a model forces a precision that is valuable even if you never use an agent.</em></p>
   </section>
 
   <!-- ================================================================== -->
@@ -615,7 +598,7 @@
   <!-- ================================================================== -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Act 3</h2>
-    <p class="kicker"><span class="accent">03</span> · Structure, reproducibility, and the agentic risk</p>
+    <p class="kicker"><span class="accent">03</span> · Build a project from scratch</p>
   </section>
 
   <!-- --- Reproducibility from Day 1 --- -->
@@ -629,10 +612,8 @@
     <ul>
       <li>No hard-coded paths</li>
       <li>No overwriting raw data</li>
-      <li><code>main.do</code> with step flags</li>
       <li>README from day 1</li>
       <li>Secrets in environment variables</li>
-      <li>Checksum-guarded downloads</li>
     </ul>
     <p style="margin-top: 1em;">These are not just journal requirements — they are what makes your project <strong>legible to an agent</strong>.</p>
   </section>
@@ -668,54 +649,42 @@
     <p style="margin-top: 1em;">The prompt is part of your methods section.</p>
   </section>
 
-  <!-- --- dodo demo --- -->
+  <!-- --- Empty folder to working project --- -->
   <section data-background-color="#24244D">
-    <h2 class="section-title">dodo: structured IR for .do pipelines</h2>
+    <h2 class="section-title">Empty folder to working project</h2>
     <p class="kicker"><span class="accent">03b</span> · Live demo</p>
   </section>
 
   <section>
-    <h2>What is dodo?</h2>
-    <ul>
-      <li>A DuckDB extension that runs your <code>.do</code> files unchanged</li>
-      <li><code>show sql</code> — see what the agent actually produced, not what you asked for</li>
-      <li><code>assert</code> — catch silent failures</li>
-      <li><code>dodoc</code> — compile the pipeline to SQL for CI</li>
-    </ul>
-    <p style="margin-top: 1em;">The <code>.do</code> syntax is a <strong>structured intermediate representation</strong> — the agent generates it, you audit the SQL it produces, the Makefile runs it.</p>
+    <h2>The setup</h2>
+    <ol>
+      <li>Start from an <strong>empty folder</strong></li>
+      <li>Use <strong>bead</strong> to download the Anthropic Economic Index data</li>
+      <li>Set up the project structure</li>
+      <li>Use <strong>OpenCode</strong> to figure out how to run Stata from the command line</li>
+      <li>Write the first prompts: load, explore, analyze</li>
+    </ol>
+    <p style="margin-top: 1em;">Watch what happens when the agent writes Python instead of Stata — and how your CLAUDE.md prevents it.</p>
   </section>
 
-  <section>
-    <h2>Silent failures to watch for</h2>
-    <div class="callout warning">
-      <strong>Agent dropped observations to force a merge</strong>
-    </div>
-    <div class="callout warning">
-      <strong>Agent treated panel as cross-section</strong>
-    </div>
-    <div class="callout warning">
-      <strong>Agent used an ID that is not stable over time</strong>
-    </div>
-    <p>"It ran without errors" is <strong>not</strong> a test.</p>
-  </section>
-
-  <!-- --- Exercise: Find the silent failure --- -->
+  <!-- --- Exercise: Answer the research question --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Exercise</h2>
-    <p class="kicker"><span class="accent">03c</span> · Find the silent failure in your own pipeline</p>
+    <p class="kicker"><span class="accent">03c</span> · Answer the research question</p>
   </section>
 
   <section>
-    <h2>Your turn (75 min)</h2>
-    <p>Bring a <code>.do</code> file or use the provided Hungarian company registry dataset.</p>
+    <h2>Your turn (85 min)</h2>
+    <p>Start from an empty folder. Use bead to get the Anthropic Economic Index data.</p>
     <ol>
-      <li>Run it through dodo</li>
-      <li>Use <code>show sql</code> to find one thing the agent generated that you would not have caught by reading the <code>.do</code> file</li>
-      <li>Write two <code>assert</code> statements that would catch it next time</li>
-      <li>Add those asserts to a <code>make test</code> target</li>
+      <li>Set up the folder structure</li>
+      <li>Use OpenCode to write Stata scripts that answer: <em>"Which country has the highest share of non-programming use of Claude?"</em></li>
+      <li>Review every diff before you approve it</li>
+      <li>When you get stuck, start a fresh session</li>
     </ol>
+    <p style="margin-top: 1em;"><strong>Debrief:</strong> each participant shares one thing the agent did that surprised them.</p>
     <aside class="notes">
-      Debrief: each participant names their silent failure. Collect these — they form the workshop's shared artifact.
+      Instructors circulate to help with setup and troubleshooting. Common issues: Stata path on Windows, agent defaulting to Python, context degradation on long sessions.
     </aside>
   </section>
 
@@ -730,7 +699,7 @@
   <section>
     <h2>What do you actually do on Monday?</h2>
     <ol>
-      <li><strong>Which harness</strong> to start with?</li>
+      <li><strong>What's the first thing</strong> you'll try with OpenCode on your own project?</li>
       <li><strong>Which model</strong> for which task?</li>
       <li><strong>What goes in your CLAUDE.md</strong> — the minimum viable project config?</li>
       <li><strong>What structural change</strong> does your project need before an agent can work in it?</li>
@@ -753,7 +722,7 @@
   <section>
     <h2>The durable investment</h2>
     <blockquote>
-      <p>Day-1 structure was already right. Skills make it agent-legible. Assertions make it auditable. The models will keep getting cheaper; <strong>the structure is the durable investment</strong>.</p>
+      <p>Day-1 structure was already right. Project config makes it agent-legible. Review makes it auditable. The models will keep getting cheaper; <strong>the structure is the durable investment</strong>.</p>
     </blockquote>
   </section>
 
