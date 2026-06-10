@@ -160,6 +160,17 @@
   </section>
 
   <section>
+    <h2>The agent has no memory</h2>
+    <figure>
+      <img src="assets/memento-tattoos.jpg" alt="Leonard's tattoos in Memento" style="max-height: 400px;">
+      <figcaption>Like Leonard in <em>Memento</em>: everything you want it to remember, you have to write down. &mdash; Sony Pictures</figcaption>
+    </figure>
+    <aside class="notes">
+      This is the single most important thing to understand about LLMs. They have no persistent memory between sessions. The context window IS their memory. CLAUDE.md, project files, your conversation — everything the model knows is tattooed onto the context window fresh each time.
+    </aside>
+  </section>
+
+  <section>
     <h2>Context is everything that fits in the window</h2>
     <ul>
       <li>The model sees <strong>only</strong> what is inside the context window</li>
@@ -336,8 +347,8 @@
     <ul>
       <li><strong>Pick one harness</strong> you are comfortable in</li>
       <li><strong>Swap models freely</strong> for each task</li>
-      <li><strong>Write skills as readable markdown</strong></li>
       <li><strong>Keep very good structure</strong> in your work</li>
+      <li><strong>Your own skills matter more than ever</strong></li>
     </ul>
     <p style="margin-top: 1em;"><em>Lock-in is the risk; model loyalty is a mistake.</em></p>
   </section>
@@ -495,10 +506,92 @@
     </div>
   </section>
 
+  <!-- --- Opinionated takes --- -->
+  <section data-background-color="#24244D">
+    <h2 class="section-title">Strong opinions, loosely held</h2>
+    <p class="kicker"><span class="accent">02c</span> · How to actually choose your tools</p>
+  </section>
+
+  <section>
+    <h2>You rarely need the most capable model</h2>
+    <ul>
+      <li>The frontier is 100× more expensive than mid-tier — for ~10% better reasoning</li>
+      <li>A fast, cheap, mid-capability model lets you <strong>iterate faster</strong></li>
+      <li>Your thinking time is now the bottleneck, not the model's — AI executes, you direct</li>
+      <li>Waiting 60 seconds for a frontier model to think wastes <strong>your</strong> attention</li>
+    </ul>
+    <div class="callout info">
+      <strong>The real tradeoff:</strong> your supervision time × model cost × iteration speed. Optimize for the product, not any one factor.
+    </div>
+  </section>
+
+  <section>
+    <h2>Monthly pricing is a fad</h2>
+    <ul>
+      <li>Intelligence will be priced by the million token — like electricity, like bandwidth</li>
+      <li>Subscriptions bundle a model, a harness, and a margin — you pay for all three</li>
+      <li>Per-token pricing lets you <strong>swap models freely</strong> and pay only for what you use</li>
+      <li>Pick a harness that lets you choose any model via API</li>
+    </ul>
+    <p style="margin-top: 1em;"><em>Would you sign a contract with one electricity provider who also chose your appliances?</em></p>
+  </section>
+
+  <section>
+    <h2>opencode &gt; Claude Code</h2>
+    <ul>
+      <li>Faster, more flexible, you can select <strong>any model</strong> from any provider</li>
+      <li>Open source — you can read the harness, modify it, trust it</li>
+      <li>The best harness is the one that gets out of your way</li>
+    </ul>
+    <div class="callout tip">
+      <strong>The principle:</strong> never let the harness vendor lock you into their model. The harness is a commodity; treat it like one.
+    </div>
+    <aside class="notes">
+      Full disclosure: I'm saying this inside a presentation made with Claude Code using Claude Opus. The tool is excellent. The lock-in risk is real.
+    </aside>
+  </section>
+
+  <section>
+    <h2>MCPs are a waste of time and tokens</h2>
+    <ul>
+      <li>Every MCP call burns context window on tool descriptions the model already has</li>
+      <li>The model can already read files, run shell commands, fetch URLs</li>
+      <li>Adding an MCP server adds latency, complexity, and failure modes</li>
+      <li>If your tool needs an MCP wrapper, the model probably can't use it well anyway</li>
+    </ul>
+    <p style="margin-top: 1em;"><em>The shell is the original universal tool protocol.</em></p>
+  </section>
+
+  <section>
+    <h2>CLAUDE.md and skills are just words</h2>
+    <ul>
+      <li>There is no special pool of "skills" — a skill is a sentence you write in plain language</li>
+      <li>How would you tell a coworker what to do? <strong>Write that.</strong></li>
+      <li>CLAUDE.md / AGENTS.md: keep them very short, only for things truly specific to your project</li>
+      <li>Better: just follow industry standards so even a cheap model understands you</li>
+    </ul>
+    <div class="callout warning">
+      <strong>Anti-pattern:</strong> a 500-line CLAUDE.md full of generic instructions. The model ignores most of it, and the useful parts get lost.
+    </div>
+  </section>
+
+  <section>
+    <h2>Your skills are the durable advantage</h2>
+    <blockquote>
+      <p>The more control you have over your own workflow — your shell, your editor, your data modeling, your version control — the better your experience with AI. Even for &#36;0.</p>
+    </blockquote>
+    <ul>
+      <li>AI amplifies what you already know how to do</li>
+      <li>If you can't express a task clearly to a coworker, you can't express it to a model</li>
+      <li>Knowing your tools (shell, SQL, git, make) means you can verify what the model produces</li>
+      <li>Best practices are not overhead — they are what makes your project <strong>legible to an agent</strong></li>
+    </ul>
+  </section>
+
   <!-- --- Exercise: Write a config and a skill --- -->
   <section data-background-color="#24244D">
     <h2 class="section-title">Exercise</h2>
-    <p class="kicker"><span class="accent">02c</span> · Write a project config and a skill</p>
+    <p class="kicker"><span class="accent">02d</span> · Write a project config and a skill</p>
   </section>
 
   <section>
